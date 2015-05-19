@@ -1,18 +1,18 @@
 # LittleToDoApp
-A Little To Do List App
+## A Little To Do List App
 
 
 Its just a little app that records to-do items. 
 
-Installation
+### Installation
 
 Clone this repo, open in Xcode 4, run it
 
-Usage
+### Usage
 
 Use it for whatever you want
 
-Contributing
+### Contributing
 
 Fork it!
 Create your feature branch: git checkout -b my-new-feature
@@ -20,12 +20,12 @@ Commit your changes: git commit -am 'Add some feature'
 Push to the branch: git push origin my-new-feature
 Submit a pull request :D
 
-History
+### History
 
 Initial code - Does not delete items from tableview - Tableview is not updating currently 
 Updated for Xcode 6
 
 
-License
+### License
 
 Its free?
