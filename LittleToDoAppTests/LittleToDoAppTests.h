@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface LittleToDoAppTests : SenTestCase
+@interface LittleToDoAppTests : XCTestCase
 
 @end

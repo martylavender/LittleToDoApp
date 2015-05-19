@@ -18,7 +18,6 @@
 		44BD97C81B0BE0A400AFD5FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97C71B0BE0A400AFD5FA /* Default-568h@2x.png */; };
 		44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97CA1B0BE0A400AFD5FA /* ViewController.m */; };
 		44BD97CE1B0BE0A400AFD5FA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97CC1B0BE0A400AFD5FA /* ViewController.xib */; };
-		44BD97D61B0BE0A400AFD5FA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97D51B0BE0A400AFD5FA /* SenTestingKit.framework */; };
 		44BD97D71B0BE0A400AFD5FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B11B0BE0A400AFD5FA /* UIKit.framework */; };
 		44BD97D81B0BE0A400AFD5FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B31B0BE0A400AFD5FA /* Foundation.framework */; };
 		44BD97E01B0BE0A400AFD5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */; };
@@ -55,7 +54,6 @@
 		44BD97CA1B0BE0A400AFD5FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		44BD97CD1B0BE0A400AFD5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		44BD97D41B0BE0A400AFD5FA /* LittleToDoAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleToDoAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44BD97D51B0BE0A400AFD5FA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		44BD97DD1B0BE0A400AFD5FA /* LittleToDoAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LittleToDoAppTests-Info.plist"; sourceTree = "<group>"; };
 		44BD97DF1B0BE0A400AFD5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44BD97E11B0BE0A400AFD5FA /* LittleToDoAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LittleToDoAppTests.h; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44BD97D61B0BE0A400AFD5FA /* SenTestingKit.framework in Frameworks */,
 				44BD97D71B0BE0A400AFD5FA /* UIKit.framework in Frameworks */,
 				44BD97D81B0BE0A400AFD5FA /* Foundation.framework in Frameworks */,
 			);
@@ -116,7 +113,6 @@
 				44BD97B11B0BE0A400AFD5FA /* UIKit.framework */,
 				44BD97B31B0BE0A400AFD5FA /* Foundation.framework */,
 				44BD97B51B0BE0A400AFD5FA /* CoreGraphics.framework */,
-				44BD97D51B0BE0A400AFD5FA /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -217,7 +213,7 @@
 			name = LittleToDoAppTests;
 			productName = LittleToDoAppTests;
 			productReference = 44BD97D41B0BE0A400AFD5FA /* LittleToDoAppTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -225,6 +221,7 @@
 		44BD97A61B0BE0A400AFD5FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Marty Lavender";
 			};
@@ -429,13 +426,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoAppTests/LittleToDoAppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -446,13 +443,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoAppTests/LittleToDoAppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -475,6 +472,7 @@
 				44BD97E81B0BE0A400AFD5FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44BD97E91B0BE0A400AFD5FA /* Build configuration list for PBXNativeTarget "LittleToDoAppTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +481,7 @@
 				44BD97EB1B0BE0A400AFD5FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
