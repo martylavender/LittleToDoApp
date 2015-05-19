@@ -1,7 +1,7 @@
 # LittleToDoApp
 A Little To Do List App
 
-A Little To Do List App
+
 Its just a little app that records to-do items. 
 
 Installation
@@ -23,9 +23,7 @@ Submit a pull request :D
 History
 
 Initial code - Does not delete items from tableview - Tableview is not updating currently 
-
-To-Do
-Convert to Xcode 6
+Updated for Xcode 6
 
 
 License
