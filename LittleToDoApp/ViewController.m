@@ -54,14 +54,6 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 }
 
 
-
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-    return [[ToDoItemSvc retrieveAllToDoItems] count];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
@@ -76,5 +68,21 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     cell.textLabel.text = [toDoItem description];
     return cell;
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [[ToDoItemSvc retrieveAllToDoItems] count];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+#pragma hiding status bar
+
+- (BOOL)prefersStatusBarHidden {return YES;}
 
 @end
