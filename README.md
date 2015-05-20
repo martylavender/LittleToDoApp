@@ -22,8 +22,11 @@ Submit a pull request :D
 
 ### History
 
-Initial code - Does not delete items from tableview - Tableview is not updating currently 
-Updated for Xcode 6
+Initial code - Does not delete items from tableView 
+Fixed tableView not updating with data
+  Wired to tableView delegate
+  Added third method for tableView to update
+Changed row height to 30
 
 
 ### License
