@@ -21,7 +21,11 @@
     [self.window makeKeyAndVisible];
     return YES;
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    /*[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar.png"]
+                                       forBarMetrics:UIBarMetricsDefault];*/
+    
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
