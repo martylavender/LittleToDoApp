@@ -10,13 +10,16 @@
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITextField *toDoItem;
+//@property (weak, nonatomic) IBOutlet UITextField *toDoItem;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (IBAction)deleteToDoItem:(id)sender;
+//- (IBAction)deleteToDoItem:(id)sender;
+//- (IBAction)addToDoItem:(id)sender;
+
 - (IBAction)addToDoItem:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UITextField *toDoItem;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
