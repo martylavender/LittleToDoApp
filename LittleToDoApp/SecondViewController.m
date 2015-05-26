@@ -13,7 +13,9 @@
 
 @end
 
-@implementation SecondViewController
+@implementation SecondViewController {
+
+}
 
 @synthesize toDoItem;
 @synthesize toDoItemName;
@@ -31,14 +33,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma hiding status bar
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([segue.identifier isEqualToString:@"toDoItemCell"]) {
-         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-         SecondViewController *destViewController = segue.destinationViewController;
-         destViewController.toDoItemName = [toDoItem objectAtIndex:indexPath.row];
-     }
- }
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
+
 
 @end

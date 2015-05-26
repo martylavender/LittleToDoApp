@@ -16,6 +16,8 @@
 
 @implementation ViewController
 
+@synthesize tableView;
+
 ToDoItemSvcCache *ToDoItemSvc = nil;
 
 - (void)viewDidLoad
@@ -54,6 +56,7 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"toDoItemCell";
@@ -81,8 +84,28 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     return 1;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        SecondViewController *destViewController = segue.destinationViewController;
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        destViewController.toDoItemName = cell.textLabel.text;
+    }
+}
+
 #pragma hiding status bar
 
-- (BOOL)prefersStatusBarHidden {return YES;}
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+// here we get back from both styles
+- (IBAction)unwindFromDetailViewController:(UIStoryboardSegue *)segue
+{
+    // UIViewController *detailViewController = [segue sourceViewController];
+    NSLog(@"%@", segue.identifier);
+}
+
+
 
 @end

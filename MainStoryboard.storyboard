@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="presentation" identifier="viewToDoItem" id="0Rt-Uz-xlc"/>
+                                            <segue destination="zIW-za-xNa" kind="showDetail" identifier="viewToDoItem" id="0Rt-Uz-xlc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,22 +90,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-Fs-7j4">
-                                <rect key="frame" x="279" y="173" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-Fs-7j4">
+                                <rect key="frame" x="16" y="173" width="568" height="110"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-BK-66T">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="W2c-dH-c6V">
+                                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="8PB-Ae-Zi2">
+                                            <connections>
+                                                <segue destination="IPh-0w-ELK" kind="unwind" identifier="goBack" unwindAction="unwindFromDetailViewController:" id="2bn-DN-CpN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="153" id="9u1-1A-WTJ"/>
+                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="HYG-Qy-3MJ"/>
+                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="yej-7K-ejt"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="toDoItem" destination="E8b-Fs-7j4" id="aD2-pW-TGc"/>
+                        <outlet property="toDoItem" destination="E8b-Fs-7j4" id="4NM-OA-EQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IPh-0w-ELK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="583" y="289"/>
+            <point key="canvasLocation" x="606" y="289"/>
         </scene>
     </scenes>
 </document>
