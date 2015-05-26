@@ -54,13 +54,9 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     
 }
 
-//- (IBAction)addToDoItem:(id)sender {
-//}
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"toDoItemCell";
     UITableViewCell *cell =
     [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {

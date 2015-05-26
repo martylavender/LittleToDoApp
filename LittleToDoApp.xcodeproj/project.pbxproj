@@ -27,6 +27,7 @@
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
 		4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
+		4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC78F4A1B0FE6150049E227 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4CC78F491B0FE6150049E227 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		4CC78F4A1B0FE6150049E227 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				44BD97B81B0BE0A400AFD5FA /* Supporting Files */,
 				4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */,
 				4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */,
+				4CC78F491B0FE6150049E227 /* SecondViewController.h */,
+				4CC78F4A1B0FE6150049E227 /* SecondViewController.m */,
 			);
 			path = LittleToDoApp;
 			sourceTree = "<group>";
@@ -233,6 +238,11 @@
 				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Marty Lavender";
+				TargetAttributes = {
+					44BD97AD1B0BE0A400AFD5FA = {
+						DevelopmentTeam = MEFJNPG9M2;
+					};
+				};
 			};
 			buildConfigurationList = 44BD97A91B0BE0A400AFD5FA /* Build configuration list for PBXProject "LittleToDoApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -299,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */,
 				44BD97BE1B0BE0A400AFD5FA /* main.m in Sources */,
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
@@ -413,12 +424,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoApp/LittleToDoApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -427,12 +441,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoApp/LittleToDoApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

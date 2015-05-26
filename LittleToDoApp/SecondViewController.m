@@ -32,11 +32,9 @@
 }
 
 
-#pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+     if ([segue.identifier isEqualToString:@"toDoItemCell"]) {
          NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
          SecondViewController *destViewController = segue.destinationViewController;
          destViewController.toDoItemName = [toDoItem objectAtIndex:indexPath.row];
