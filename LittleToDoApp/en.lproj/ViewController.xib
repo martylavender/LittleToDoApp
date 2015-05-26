@@ -37,16 +37,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <items>
                         <navigationItem title="Little To Do App" id="9">
-                            <barButtonItem key="leftBarButtonItem" title="Save" id="21">
-                                <connections>
-                                    <action selector="addToDoItem:" destination="-1" id="36"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Delete" id="13">
-                                <connections>
-                                    <action selector="deleteToDoItem:" destination="-1" id="29"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem key="leftBarButtonItem" title="Save" id="21"/>
+                            <barButtonItem key="rightBarButtonItem" title="Delete" id="13"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
