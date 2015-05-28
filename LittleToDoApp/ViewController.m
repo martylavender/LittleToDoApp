@@ -29,6 +29,7 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 }
 
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -73,6 +74,7 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 }
 
 
+
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
@@ -106,8 +108,19 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     NSLog(@"%@", segue.identifier);
 }
 
+//Allows the delete button to show up when left swipping a list item
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return YES - we will be able to delete all rows
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Will add code to actually delete a row here. Adding NSLog so we know its triggering though
+    NSLog(@"Deleted row.");
+}
 
 
 @end
