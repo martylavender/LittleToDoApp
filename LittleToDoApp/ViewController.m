@@ -86,6 +86,8 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     return 1;
 }
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -120,7 +122,14 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 {
     // Will add code to actually delete a row here. Adding NSLog so we know its triggering though
     NSLog(@"Deleted row.");
+
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView reloadData];
+
 }
+
+
 
 
 @end
