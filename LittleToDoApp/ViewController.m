@@ -18,6 +18,7 @@
 
 @synthesize tableView;
 
+
 ToDoItemSvcCache *ToDoItemSvc = nil;
 
 - (void)viewDidLoad
@@ -25,6 +26,7 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+
     ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
 }
 
@@ -75,15 +77,16 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 
 
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return [[ToDoItemSvc retrieveAllToDoItems] count];
+
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
     return 1;
+
 }
 
 
@@ -104,6 +107,7 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 }
 
 // here we get back from both styles
+
 - (IBAction)unwindFromDetailViewController:(UIStoryboardSegue *)segue
 {
     // UIViewController *detailViewController = [segue sourceViewController];
@@ -118,17 +122,15 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Will add code to actually delete a row here. Adding NSLog so we know its triggering though
-    NSLog(@"Deleted row.");
 
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSLog(@"Removing data");
     
-    [self.tableView reloadData];
-
 }
-
+        
+    
+//    [ToDoItemSvc deleteToDoItem:[ToDoItemSvc retrieveAllToDoItems][indexPath.row]];
 
 
 
