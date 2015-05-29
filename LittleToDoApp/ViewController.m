@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "ToDoItem.h"
-#import "ToDoItemSvcCache.h"
+//#import "ToDoItemSvcCache.h"
+#import "ToDoItemSvcArchive.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,8 @@
 @synthesize tableView;
 
 
-ToDoItemSvcCache *ToDoItemSvc = nil;
+//ToDoItemSvcCache *ToDoItemSvc = nil;
+ToDoItemSvcArchive *ToDoItemSvc = nil;
 
 - (void)viewDidLoad
 {
@@ -27,7 +29,8 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-    ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
+    //ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
+    ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
 }
 
 
