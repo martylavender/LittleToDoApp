@@ -7,6 +7,8 @@
 //
 
 #import "LittleToDoAppTests.h"
+#import "ToDoItem.h"
+#import "ToDoItemSvcArchive.h"
 
 @implementation LittleToDoAppTests
 
@@ -24,9 +26,22 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testToDoItemSvcArchive
 {
-    XCTFail(@"Unit tests are not implemented yet in LittleToDoAppTests");
+    //XCTFail(@"Unit tests are not implemented yet in LittleToDoAppTests");
+    
+    NSLog(@"*** Starting testToDoItemSvcArchive ***");
+    ToDoItemSvcArchive *toDoItemSvc = [[ToDoItemSvcArchive alloc] init];
+    
+    ToDoItem *todoitem = [[ToDoItem alloc] init];
+    todoitem.todoitem = @"This is a test item";
+    
+    [toDoItemSvc createToDoItem:(ToDoItem *) todoitem];
+    int count = [[toDoItemSvc retrieveAllToDoItems] count];
+    
+    NSLog(@"*** The count: %i", count);
+    
+    NSLog(@"*** Ending testToDoItemSvcArchive ***");
 }
 
 @end
