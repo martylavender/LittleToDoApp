@@ -124,14 +124,13 @@ ToDoItemSvcCache *ToDoItemSvc = nil;
 
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    ToDoItem *toDoItem = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];
+    
+    [ToDoItemSvc deleteToDoItem:toDoItem];
+    [self.tableView reloadData];
+    
     NSLog(@"Removing data");
-    
 }
-        
-    
-//    [ToDoItemSvc deleteToDoItem:[ToDoItemSvc retrieveAllToDoItems][indexPath.row]];
-
-
 
 @end
