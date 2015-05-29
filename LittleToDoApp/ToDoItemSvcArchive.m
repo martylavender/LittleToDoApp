@@ -62,6 +62,11 @@ NSMutableArray *toDoItems;
 }
 
 - (ToDoItem *) deleteToDoItem: (ToDoItem *) todoitem {
+    NSLog(@"ToDoItemSvc.deleteToDoItem: %@", [todoitem description]);
+    
+    [toDoItems removeObject:todoitem];
+    [self writeArchive];
+    
     return todoitem;
 }
 
