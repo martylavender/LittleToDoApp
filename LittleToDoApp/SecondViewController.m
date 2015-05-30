@@ -26,7 +26,9 @@
     // Do any additional setup after loading the view.
     
     toDoItem.text = toDoItemName;
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

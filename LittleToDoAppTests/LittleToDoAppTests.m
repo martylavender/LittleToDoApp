@@ -12,6 +12,7 @@
 
 @implementation LittleToDoAppTests
 
+
 - (void)setUp
 {
     [super setUp];
@@ -37,9 +38,9 @@
     todoitem.todoitem = @"This is a test item";
     
     [toDoItemSvc createToDoItem:(ToDoItem *) todoitem];
-    int count = [[toDoItemSvc retrieveAllToDoItems] count];
+    NSInteger count = [[toDoItemSvc retrieveAllToDoItems] count];
     
-    NSLog(@"*** The count: %i", count);
+    NSLog(@"*** The count: %li", (long)count);
     
     NSLog(@"*** Ending testToDoItemSvcArchive ***");
 }
