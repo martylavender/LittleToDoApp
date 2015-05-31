@@ -13,10 +13,11 @@
 
 @interface SecondViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UILabel *toDoItem;
+//@property (nonatomic, strong) IBOutlet UILabel *toDoItem;
 @property (nonatomic, strong) NSString *toDoItemName;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) IBOutlet UITextField *toDoItem;
 
 
 @end

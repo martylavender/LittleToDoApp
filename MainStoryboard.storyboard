@@ -93,12 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-Fs-7j4">
-                                <rect key="frame" x="16" y="173" width="568" height="110"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-BK-66T">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
@@ -111,25 +105,24 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNn-D7-EHt">
-                                <rect key="frame" x="16" y="259" width="568" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-IB-h5G">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jnK-bl-8Mt" firstAttribute="top" secondItem="E8b-Fs-7j4" secondAttribute="bottom" constant="317" id="79n-Tq-Ldv"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="6rb-hP-Whw"/>
                             <constraint firstItem="8bg-BK-66T" firstAttribute="top" secondItem="bYr-Zb-U9f" secondAttribute="top" id="8JB-u5-5sM"/>
-                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="153" id="9u1-1A-WTJ"/>
-                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="HYG-Qy-3MJ"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="IiV-Hz-mjd"/>
                             <constraint firstItem="8bg-BK-66T" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="N8b-cL-IZB"/>
-                            <constraint firstItem="8bg-BK-66T" firstAttribute="centerX" secondItem="E8b-Fs-7j4" secondAttribute="centerX" id="YSx-DF-4ZO"/>
-                            <constraint firstItem="E8b-Fs-7j4" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="yej-7K-ejt"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerY" secondItem="bYr-Zb-U9f" secondAttribute="centerY" id="Sh1-3x-OKb"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerX" secondItem="8bg-BK-66T" secondAttribute="centerX" id="kZ0-o1-6Ob"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="toDoItem" destination="E8b-Fs-7j4" id="4NM-OA-EQU"/>
+                        <outlet property="toDoItem" destination="iUs-IB-h5G" id="sRz-Ea-H6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -59,9 +59,9 @@ NSMutableArray *toDoItems;
 
 - (ToDoItem *) updateToDoItem: (ToDoItem *) todoitem {
     NSLog(@"ToDoItemSvc.updateToDoItem: %@", [todoitem description]);
-    NSString *ToDoItem = [toDoItems objectAtIndex:1];
+    //NSString *newToDoItem = [toDoItems objectAtIndex:1];
     
-    [toDoItems replaceObjectAtIndex:1 withObject:ToDoItem];
+    [toDoItems replaceObjectAtIndex:1 withObject:todoitem];
     
     return todoitem;
 }

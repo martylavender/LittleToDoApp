@@ -48,6 +48,8 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     
 }
 
+
+
 - (IBAction)addToDoItem:(id)sender {
     
     [self.view endEditing:YES];
@@ -56,6 +58,10 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     ToDoItem *todoitem = [[ToDoItem alloc] init];
     todoitem.todoitem = _toDoItem.text;
     [ToDoItemSvc createToDoItem:todoitem];
+    
+    
+    //clears text field on save
+    _toDoItem.text = @"";
     
     [self.tableView reloadData];
     NSLog(@"saveToDoItem: todoitem saved");
