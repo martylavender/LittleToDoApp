@@ -102,6 +102,11 @@
                                                 <segue destination="IPh-0w-ELK" kind="unwind" identifier="goBack" unwindAction="unwindFromDetailViewController:" id="2bn-DN-CpN"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Update" id="Bzq-im-MsS">
+                                            <connections>
+                                                <action selector="updateToDoItem:" destination="zIW-za-xNa" id="jB6-Bu-hYf"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

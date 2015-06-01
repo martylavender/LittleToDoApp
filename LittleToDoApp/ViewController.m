@@ -18,6 +18,7 @@
 @implementation ViewController
 
 @synthesize tableView;
+@synthesize myObjectsIndex;
 
 
 //ToDoItemSvcCache *ToDoItemSvc = nil;

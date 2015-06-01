@@ -14,6 +14,7 @@ NSString *filePath;
 
 NSMutableArray *toDoItems;
 
+
 - (id) init {
     NSArray *dirPaths =
     NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -57,14 +58,20 @@ NSMutableArray *toDoItems;
     return toDoItems;
 }
 
+
 - (ToDoItem *) updateToDoItem: (ToDoItem *) todoitem {
     NSLog(@"ToDoItemSvc.updateToDoItem: %@", [todoitem description]);
-    //NSString *newToDoItem = [toDoItems objectAtIndex:1];
+
+    
+    //NSUInteger index = [toDoItems indexOfObject:todoitem];
+    
     
     [toDoItems replaceObjectAtIndex:1 withObject:todoitem];
     
     return todoitem;
 }
+
+
 
 - (ToDoItem *) deleteToDoItem: (ToDoItem *) todoitem {
     NSLog(@"ToDoItemSvc.deleteToDoItem: %@", [todoitem description]);

@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *toDoItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic) int myObjectsIndex;
+
 @end
