@@ -33,4 +33,9 @@ Submit a pull request :D
 ### License
 
 Its free?
-This application is available via GPL-3.0.
+This application is available via GPL-3.0.  
+App icons were made with love using Pixelmator  
+Copyright (c) 2015 Marty Lavender marty@martylavender.com
+
+Uses DZNEmptyDataSet covered under MIT   
+Copyright (c) 2015 Ignacio Romero Zurbuchen iromero@dzen.cl
