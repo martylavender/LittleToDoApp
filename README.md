@@ -22,17 +22,15 @@ Submit a pull request :D
 
 ### History
 
-Initial code - Does not delete items from tableView 
-
-Fixed tableView not updating with data
-
-  Wired to tableView delegate
-  
-  Added third method for tableView to update
-  
-Changed row height to 30
-
+* Initial code - Does not delete items from tableView 
+* Fixed tableView not updating with data
+* Wired to tableView delegate
+* Added third method for tableView to update
+* Changed row height to 30
+* Implemented storyboard into project
+* Items can be added, deleted, and updated
 
 ### License
 
 Its free?
+This application is available via GPL-3.0.
