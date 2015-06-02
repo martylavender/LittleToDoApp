@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SecondViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+//<UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITextField *toDoItem;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (IBAction)deleteToDoItem:(id)sender;
 - (IBAction)addToDoItem:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UITextField *toDoItem;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) int myObjectsIndex;
 
 @end

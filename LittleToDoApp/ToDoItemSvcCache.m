@@ -34,6 +34,9 @@ NSMutableArray *ToDoItems = nil;
 }
 
 - (ToDoItem *) deleteToDoItem: (ToDoItem *) todoitem {
+    
+    [ToDoItems removeObject:todoitem];
+    
     return todoitem;
 }
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ToDoItem : NSObject
+@interface ToDoItem : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *todoitem;
 

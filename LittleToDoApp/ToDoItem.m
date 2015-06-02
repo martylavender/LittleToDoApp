@@ -10,6 +10,19 @@
 
 @implementation ToDoItem
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.todoitem forKey:@"TODOITEM"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    if (self) {
+        _todoitem = [coder decodeObjectForKey:@"TODOITEM"];
+
+    }
+    return self;
+}
+
 - (NSString *) description {
     return [NSString stringWithFormat: @"%@",
             _todoitem];

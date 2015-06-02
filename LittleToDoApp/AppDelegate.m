@@ -12,17 +12,25 @@
 
 @implementation AppDelegate
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    /*self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];*/
     return YES;
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bg.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    /*[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar.png"]
+                                       forBarMetrics:UIBarMetricsDefault];*/
+    
+
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -50,5 +58,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end
