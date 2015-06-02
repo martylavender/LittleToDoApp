@@ -49,7 +49,13 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     [self.tableView reloadData];
 }
 
-
+//dismisses the keyboard when tapping off of it
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    [self.toDoItem resignFirstResponder];
+    
+}
 
 
 - (void)didReceiveMemoryWarning
