@@ -21,14 +21,14 @@
 }
 
 @synthesize toDoItem;
-@synthesize toDoItemName;
+@synthesize toDoItemObject;
 @synthesize tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    toDoItem.text = toDoItemName;
+    toDoItem.text = toDoItemObject.todoitem;
 
 }
 
@@ -47,7 +47,7 @@
 
 - (IBAction)updateToDoItem:(id)sender {
     NSLog(@"updatingToDoItem: entering");
-    //[ToDoItemSvcArchive updateToDoItem:todoitem];
-
+    toDoItemObject.todoitem = toDoItem.text;
 }
+
 @end

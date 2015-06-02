@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ToDoItem.h"
 
 @class ViewController;
 
 @interface SecondViewController : UIViewController
 
 //@property (nonatomic, strong) IBOutlet UILabel *toDoItem;
-@property (nonatomic, strong) NSString *toDoItemName;
+@property (nonatomic, strong) ToDoItem *toDoItemObject;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) IBOutlet UITextField *toDoItem;

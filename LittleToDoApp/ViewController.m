@@ -34,6 +34,12 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -105,8 +111,7 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SecondViewController *destViewController = segue.destinationViewController;
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        destViewController.toDoItemName = cell.textLabel.text;
+        destViewController.toDoItemObject = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];
     }
 }
 
