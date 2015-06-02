@@ -34,3 +34,7 @@ Submit a pull request :D
 
 Its free?
 This application is available via GPL-3.0.
+Copyright (c) 2015 Marty Lavender marty@martylavender.com
+
+Uses DZNEmptyDataSet covered under MIT 
+Copyright (c) 2015 Ignacio Romero Zurbuchen iromero@dzen.cl
