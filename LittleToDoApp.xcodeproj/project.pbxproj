@@ -24,6 +24,7 @@
 		44BD97E31B0BE0A400AFD5FA /* LittleToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97E21B0BE0A400AFD5FA /* LittleToDoAppTests.m */; };
 		44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97EE1B0BE2C100AFD5FA /* ToDoItem.m */; };
 		44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */; };
+		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
 		4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
@@ -68,6 +69,8 @@
 		44BD97F01B0BE3AA00AFD5FA /* ToDoItemSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvc.h; sourceTree = "<group>"; };
 		44BD97F11B0BE40300AFD5FA /* ToDoItemSvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcCache.h; sourceTree = "<group>"; };
 		44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcCache.m; sourceTree = "<group>"; };
+		4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		44BD97B71B0BE0A400AFD5FA /* LittleToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C18AAFE1B1E22DD00642AAB /* Empty Table View */,
 				44BD97EC1B0BE0AD00AFD5FA /* Model */,
 				44BD97C01B0BE0A400AFD5FA /* AppDelegate.h */,
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
@@ -193,6 +197,15 @@
 				4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		4C18AAFE1B1E22DD00642AAB /* Empty Table View */ = {
+			isa = PBXGroup;
+			children = (
+				4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */,
+				4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */,
+			);
+			name = "Empty Table View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +333,7 @@
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
 				44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */,
+				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
 				44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

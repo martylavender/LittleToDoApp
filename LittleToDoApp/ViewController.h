@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SecondViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+//<UITableViewDelegate, UITableViewDataSource>
+
+
 
 - (IBAction)addToDoItem:(id)sender;
 

@@ -10,6 +10,7 @@
 #import "ToDoItem.h"
 //#import "ToDoItemSvcCache.h"
 #import "ToDoItemSvcArchive.h"
+#import "UIScrollView+EmptyDataSet.h"
 
 @interface ViewController ()
 
@@ -29,9 +30,17 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    
     //ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
     ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
+}
+
+- (void)dealloc
+{
+    self.tableView.emptyDataSetSource = nil;
+    self.tableView.emptyDataSetDelegate = nil;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -39,6 +48,7 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     
     [self.tableView reloadData];
 }
+
 
 
 
@@ -147,5 +157,58 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     
     NSLog(@"Removing data");
 }
+
+//empty table view
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"There is nothing here";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+//sets the description
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Type in a new to do item \n and tap the save button to get started";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+/*
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
+    
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}*/
+
+//sets the image
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"emptytableimg"];
+}
+
+//sets the color
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+
+
 
 @end
