@@ -34,6 +34,7 @@ Submit a pull request :D
 
 Its free?
 This application is available via GPL-3.0.  
+App icons were made with love using Pixelmator  
 Copyright (c) 2015 Marty Lavender marty@martylavender.com
 
 Uses DZNEmptyDataSet covered under MIT   
