@@ -50,8 +50,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
-                                <rect key="frame" x="0.0" y="153" width="600" height="106"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
+                                <rect key="frame" x="6" y="153" width="600" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="kLn-q4-Zfe"/>
                                 </constraints>
