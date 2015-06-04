@@ -11,5 +11,7 @@
 @interface ToDoItem : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *todoitem;
+@property (nonatomic, strong) NSString *itemname;
+@property (nonatomic, assign) NSInteger *id;
 
 @end

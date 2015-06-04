@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "ToDoItem.h"
 //#import "ToDoItemSvcCache.h"
-#import "ToDoItemSvcArchive.h"
+//#import "ToDoItemSvcArchive.h"
+#import "ToDoItemSvcSQLite.h"
 #import "UIScrollView+EmptyDataSet.h"
 
 @interface ViewController ()
@@ -23,7 +24,8 @@
 
 
 //ToDoItemSvcCache *ToDoItemSvc = nil;
-ToDoItemSvcArchive *ToDoItemSvc = nil;
+//ToDoItemSvcArchive *ToDoItemSvc = nil;
+ToDoItemSvcSQLite *ToDoItemSvc = nil;
 
 - (void)viewDidLoad
 {
@@ -34,7 +36,8 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     self.tableView.emptyDataSetDelegate = self;
     
     //ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
-    ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
+    //ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
+    ToDoItemSvc = [[ToDoItemSvcSQLite alloc] init];
 }
 
 - (void)dealloc
@@ -77,7 +80,7 @@ ToDoItemSvcArchive *ToDoItemSvc = nil;
     
     [self.view endEditing:YES];
     
-    NSLog(@"saveToDoItem: entering");
+    NSLog(@"saveToDoItem: Adding ToDoItem");
     ToDoItem *todoitem = [[ToDoItem alloc] init];
     todoitem.todoitem = _toDoItem.text;
     [ToDoItemSvc createToDoItem:todoitem];

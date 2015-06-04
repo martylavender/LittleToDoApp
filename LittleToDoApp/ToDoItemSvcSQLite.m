@@ -13,7 +13,6 @@
 
 @implementation ToDoItemSvcSQLite
 
-@synthesize id;
 
 NSString *databasePath = nil;
 sqlite3 *database = nil;
@@ -27,6 +26,14 @@ sqlite3 *database = nil;
         if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
             NSLog(@"database is open");
             NSLog(@"database file path: %@", databasePath);
+            
+            NSString *createSql = @"Create table if not exists todoitem (id integer primary key autoincrement, itemname varchar(200))";
+            
+            char *errMsg;
+            if (sqlite3_exec(database, [createSql UTF8String], NULL, NULL, &errMsg) !=SQLITE_OK) {
+                NSLog(@"Failed to create table %s", errMsg);
+            }
+            
         }
         else {
             NSLog(@"*** Failed to open database!");
@@ -95,7 +102,7 @@ sqlite3 *database = nil;
 }
 
 - (ToDoItem *) deleteToDoItem:(ToDoItem *)todoitem {
-    NSString *deleteSQL = [NSString stringWithFormat: @"DELETE FROM todoitem WHERE id = %i ", todoitem.id];
+    NSString *deleteSQL = [NSString stringWithFormat: @"DELETE FROM todoitem WHERE id = %i",(int) todoitem.id];
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(database, [deleteSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         if (sqlite3_step(statement) == SQLITE_DONE) {

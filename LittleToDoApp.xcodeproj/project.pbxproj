@@ -30,6 +30,7 @@
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */; };
 		4C80EF741B1FD58300B26CFF /* ToDoItemSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */; };
+		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
 		4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC78F4A1B0FE6150049E227 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcArchive.m; sourceTree = "<group>"; };
 		4C80EF721B1FD58300B26CFF /* ToDoItemSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcSQLite.h; sourceTree = "<group>"; };
 		4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcSQLite.m; sourceTree = "<group>"; };
+		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4CC78F491B0FE6150049E227 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4CC78F4A1B0FE6150049E227 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */,
 				44BD97B21B0BE0A400AFD5FA /* UIKit.framework in Frameworks */,
 				44BD97B41B0BE0A400AFD5FA /* Foundation.framework in Frameworks */,
 				44BD97B61B0BE0A400AFD5FA /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +131,7 @@
 		44BD97B01B0BE0A400AFD5FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C80EF751B20163200B26CFF /* libsqlite3.dylib */,
 				44BD97B11B0BE0A400AFD5FA /* UIKit.framework */,
 				44BD97B31B0BE0A400AFD5FA /* Foundation.framework */,
 				44BD97B51B0BE0A400AFD5FA /* CoreGraphics.framework */,

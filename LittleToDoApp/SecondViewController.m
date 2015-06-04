@@ -46,7 +46,7 @@
 
 
 - (IBAction)updateToDoItem:(id)sender {
-    NSLog(@"updatingToDoItem: entering");
+    NSLog(@"updatingToDoItem: Updating ToDoItem");
     toDoItemObject.todoitem = toDoItem.text;
 }
 
