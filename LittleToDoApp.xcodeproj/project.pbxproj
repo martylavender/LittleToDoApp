@@ -29,6 +29,7 @@
 		4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */; };
+		4C80EF741B1FD58300B26CFF /* ToDoItemSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */; };
 		4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC78F4A1B0FE6150049E227 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4C5622E01B1914E200FD89AA /* ToDoItemSvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcArchive.h; sourceTree = "<group>"; };
 		4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcArchive.m; sourceTree = "<group>"; };
+		4C80EF721B1FD58300B26CFF /* ToDoItemSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcSQLite.h; sourceTree = "<group>"; };
+		4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcSQLite.m; sourceTree = "<group>"; };
 		4CC78F491B0FE6150049E227 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4CC78F4A1B0FE6150049E227 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +198,8 @@
 				44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */,
 				4C5622E01B1914E200FD89AA /* ToDoItemSvcArchive.h */,
 				4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */,
+				4C80EF721B1FD58300B26CFF /* ToDoItemSvcSQLite.h */,
+				4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
 				44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */,
+				4C80EF741B1FD58300B26CFF /* ToDoItemSvcSQLite.m in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
 				44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */,
 			);
