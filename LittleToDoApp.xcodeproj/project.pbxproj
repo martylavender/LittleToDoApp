@@ -31,6 +31,9 @@
 		4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */; };
 		4C80EF741B1FD58300B26CFF /* ToDoItemSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
+		4CA58AF51B22641500FC5D30 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA58AF41B22641500FC5D30 /* CoreData.framework */; };
+		4CA58AF81B22647600FC5D30 /* ToDoListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CA58AF61B22647600FC5D30 /* ToDoListModel.xcdatamodeld */; };
+		4CA58AFB1B22652A00FC5D30 /* ToDoItemSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA58AFA1B22652A00FC5D30 /* ToDoItemSvcCoreData.m */; };
 		4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC78F4A1B0FE6150049E227 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,10 @@
 		4C80EF721B1FD58300B26CFF /* ToDoItemSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcSQLite.h; sourceTree = "<group>"; };
 		4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcSQLite.m; sourceTree = "<group>"; };
 		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4CA58AF41B22641500FC5D30 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4CA58AF71B22647600FC5D30 /* ToDoListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoListModel.xcdatamodel; sourceTree = "<group>"; };
+		4CA58AF91B22652A00FC5D30 /* ToDoItemSvcCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcCoreData.h; sourceTree = "<group>"; };
+		4CA58AFA1B22652A00FC5D30 /* ToDoItemSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcCoreData.m; sourceTree = "<group>"; };
 		4CC78F491B0FE6150049E227 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4CC78F4A1B0FE6150049E227 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA58AF51B22641500FC5D30 /* CoreData.framework in Frameworks */,
 				4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */,
 				44BD97B21B0BE0A400AFD5FA /* UIKit.framework in Frameworks */,
 				44BD97B41B0BE0A400AFD5FA /* Foundation.framework in Frameworks */,
@@ -131,6 +139,7 @@
 		44BD97B01B0BE0A400AFD5FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CA58AF41B22641500FC5D30 /* CoreData.framework */,
 				4C80EF751B20163200B26CFF /* libsqlite3.dylib */,
 				44BD97B11B0BE0A400AFD5FA /* UIKit.framework */,
 				44BD97B31B0BE0A400AFD5FA /* Foundation.framework */,
@@ -155,6 +164,7 @@
 				4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */,
 				4CC78F491B0FE6150049E227 /* SecondViewController.h */,
 				4CC78F4A1B0FE6150049E227 /* SecondViewController.m */,
+				4CA58AF61B22647600FC5D30 /* ToDoListModel.xcdatamodeld */,
 			);
 			path = LittleToDoApp;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 				4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */,
 				4C80EF721B1FD58300B26CFF /* ToDoItemSvcSQLite.h */,
 				4C80EF731B1FD58300B26CFF /* ToDoItemSvcSQLite.m */,
+				4CA58AF91B22652A00FC5D30 /* ToDoItemSvcCoreData.h */,
+				4CA58AFA1B22652A00FC5D30 /* ToDoItemSvcCoreData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -340,9 +352,11 @@
 				44BD97BE1B0BE0A400AFD5FA /* main.m in Sources */,
 				4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */,
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
+				4CA58AFB1B22652A00FC5D30 /* ToDoItemSvcCoreData.m in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
 				44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */,
 				4C80EF741B1FD58300B26CFF /* ToDoItemSvcSQLite.m in Sources */,
+				4CA58AF81B22647600FC5D30 /* ToDoListModel.xcdatamodeld in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
 				44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */,
 			);
@@ -551,6 +565,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4CA58AF61B22647600FC5D30 /* ToDoListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4CA58AF71B22647600FC5D30 /* ToDoListModel.xcdatamodel */,
+			);
+			currentVersion = 4CA58AF71B22647600FC5D30 /* ToDoListModel.xcdatamodel */;
+			path = ToDoListModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 44BD97A61B0BE0A400AFD5FA /* Project object */;
 }

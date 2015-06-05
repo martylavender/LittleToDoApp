@@ -10,8 +10,10 @@
 #import "ToDoItem.h"
 //#import "ToDoItemSvcCache.h"
 //#import "ToDoItemSvcArchive.h"
-#import "ToDoItemSvcSQLite.h"
+//#import "ToDoItemSvcSQLite.h"
+#import "ToDoItemSvcCoreData.h"
 #import "UIScrollView+EmptyDataSet.h"
+
 
 @interface ViewController ()
 
@@ -25,7 +27,9 @@
 
 //ToDoItemSvcCache *ToDoItemSvc = nil;
 //ToDoItemSvcArchive *ToDoItemSvc = nil;
-ToDoItemSvcSQLite *ToDoItemSvc = nil;
+//ToDoItemSvcSQLite *ToDoItemSvc = nil;
+ToDoItemSvcCoreData *ToDoItemSvc = nil;
+
 
 - (void)viewDidLoad
 {
@@ -37,7 +41,8 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
     
     //ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
     //ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
-    ToDoItemSvc = [[ToDoItemSvcSQLite alloc] init];
+    //ToDoItemSvc = [[ToDoItemSvcSQLite alloc] init];
+    ToDoItemSvc = [[ToDoItemSvcCoreData alloc] init];
 }
 
 - (void)dealloc
