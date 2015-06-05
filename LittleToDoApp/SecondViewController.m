@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ToDoItemSvcArchive.h"
 #import "ToDoItemSvc.h"
+#import "ToDoItemSvcSQLite.h"
 
 
 @interface SecondViewController ()
@@ -54,6 +55,7 @@
 - (IBAction)updateToDoItem:(id)sender {
     NSLog(@"updatingToDoItem: Updating ToDoItem");
     toDoItemObject.itemname = toDoItem.text;
+    [[ToDoItemSvcSQLite new] updateToDoItem:toDoItemObject];
 }
 
 /*- (IBAction)updateToDoItem:(id)sender {

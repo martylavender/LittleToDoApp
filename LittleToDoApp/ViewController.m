@@ -162,7 +162,7 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"toDoItemCell"]) {
+    if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SecondViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItemObject = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];
