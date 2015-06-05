@@ -126,7 +126,7 @@ static sqlite3 *database = nil;
 }*/
 
 - (ToDoItem *) updateToDoItem:(ToDoItem *)todoitem {
-    NSString *updateSQL = [NSString stringWithFormat: @"UPDATE todoitem SET itemname=\"%@\" WHERE id = %i ", todoitem.itemname, todoitem.id]; // I edited
+    NSString *updateSQL = [NSString stringWithFormat: @"UPDATE todoitem SET itemname=\"%@\" WHERE id = %li ", todoitem.itemname, (long)todoitem.id]; // I edited
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(database, [updateSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
         if (sqlite3_step(statement) == SQLITE_DONE) {

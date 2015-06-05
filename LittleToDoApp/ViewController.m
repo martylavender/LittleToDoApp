@@ -84,7 +84,7 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
     ToDoItem *todoitem = [[ToDoItem alloc] init];
     todoitem.itemname = _toDoItem.text;
     [ToDoItemSvc createToDoItem:todoitem];
-    /*todoitem.todoitem = _toDoItem.text;
+    todoitem.todoitem = _toDoItem.text;
     [ToDoItemSvc createToDoItem:todoitem];
     
     
