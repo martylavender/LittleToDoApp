@@ -24,12 +24,19 @@
 @synthesize toDoItemObject;
 @synthesize tableView;
 
-- (void)viewDidLoad {
+/*- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     toDoItem.text = toDoItemObject.todoitem;
 
+}*/
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    toDoItem.text = toDoItemObject.itemname; // I edited
 }
 
 
@@ -44,10 +51,14 @@
     return YES;
 }
 
-
 - (IBAction)updateToDoItem:(id)sender {
     NSLog(@"updatingToDoItem: Updating ToDoItem");
-    toDoItemObject.todoitem = toDoItem.text;
+    toDoItemObject.itemname = toDoItem.text;
 }
+
+/*- (IBAction)updateToDoItem:(id)sender {
+    NSLog(@"updatingToDoItem: Updating ToDoItem");
+    toDoItemObject.todoitem = toDoItem.text;
+}*/
 
 @end

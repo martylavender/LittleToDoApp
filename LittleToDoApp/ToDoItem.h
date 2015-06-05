@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSString *todoitem;
 @property (nonatomic, strong) NSString *itemname;
-@property (nonatomic, assign) NSInteger *id;
+@property (nonatomic, assign) NSInteger id;
 
 @end

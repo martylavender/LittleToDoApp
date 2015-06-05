@@ -76,13 +76,15 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
 
 
 
-- (IBAction)addToDoItem:(id)sender {
+/*- (IBAction)addToDoItem:(id)sender {
     
     [self.view endEditing:YES];
     
     NSLog(@"saveToDoItem: Adding ToDoItem");
     ToDoItem *todoitem = [[ToDoItem alloc] init];
-    todoitem.todoitem = _toDoItem.text;
+    todoitem.itemname = _toDoItem.text;
+    [ToDoItemSvc createToDoItem:todoitem];
+    /*todoitem.todoitem = _toDoItem.text;
     [ToDoItemSvc createToDoItem:todoitem];
     
     
@@ -91,10 +93,26 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
     
     [self.tableView reloadData];
     NSLog(@"saveToDoItem: todoitem saved");
+
+}*/
+
+- (IBAction)addToDoItem:(id)sender {
+    [self.view endEditing:YES];
     
+    NSLog(@"saveToDoItem: Adding ToDoItem");
+    ToDoItem *todoitem = [[ToDoItem alloc] init];
+    todoitem.itemname = _toDoItem.text;  // I edited
+    [ToDoItemSvc createToDoItem:todoitem];
+    
+    //clears text field on save
+    _toDoItem.text = @"";
+    
+    [self.tableView reloadData];
+    NSLog(@"saveToDoItem: todoitem saved");
 }
 
-
+/*- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"toDoItemCell";
@@ -108,7 +126,24 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
                         objectAtIndex:indexPath.row];
     cell.textLabel.text = [toDoItem description];
     return cell;
+}*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"toDoItemCell";
+    UITableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:simpleTableIdentifier];
+    }
+    ToDoItem *toDoItem = [[ToDoItemSvc retrieveAllToDoItems]
+                          objectAtIndex:indexPath.row];
+    cell.textLabel.text = [toDoItem itemname]; // I edited
+    return cell;
 }
+
+
 
 
 
@@ -127,7 +162,7 @@ ToDoItemSvcSQLite *ToDoItemSvc = nil;
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
+    if ([segue.identifier isEqualToString:@"toDoItemCell"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         SecondViewController *destViewController = segue.destinationViewController;
         destViewController.toDoItemObject = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];

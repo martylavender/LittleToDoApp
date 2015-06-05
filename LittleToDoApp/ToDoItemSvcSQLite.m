@@ -15,9 +15,10 @@
 
 
 NSString *databasePath = nil;
-sqlite3 *database = nil;
+//sqlite3 *database = nil;
+static sqlite3 *database = nil;
 
-- (id)init {
+/*- (id)init {
     if ((self = [super init])) {
         NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDir = [documentPaths objectAtIndex:0];
@@ -41,6 +42,29 @@ sqlite3 *database = nil;
         }
     }
     return self;
+}*/
+
+
++ (void)initialize {
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [documentPaths objectAtIndex:0];
+    databasePath = [documentsDir stringByAppendingPathComponent:@"todoitem"];
+    
+    if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
+        NSLog(@"database is open");
+        NSLog(@"database file path: %@", databasePath);
+        
+        NSString *createSql = @"Create table if not exists todoitem (id integer primary key autoincrement, itemname varchar(200))";
+        
+        char *errMsg;
+        if (sqlite3_exec(database, [createSql UTF8String], NULL, NULL, &errMsg) !=SQLITE_OK) {
+            NSLog(@"Failed to create table %s", errMsg);
+        }
+        
+    } else {
+        NSLog(@"*** Failed to open database!");
+        NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
+    }
 }
 
 - (ToDoItem *) createToDoItem:(ToDoItem *)todoitem {
@@ -85,8 +109,8 @@ sqlite3 *database = nil;
     return todoitems;
 }
 
-- (ToDoItem *) updateToDoItem:(ToDoItem *)todoitem {
-    NSString *updateSQL = [NSString stringWithFormat: @"UPDATE todoitem SET itemname=\"%@\" WHERE id = %i ", todoitem.todoitem];
+/*- (ToDoItem *) updateToDoItem:(ToDoItem *)todoitem {
+    NSString *updateSQL = [NSString stringWithFormat: @"UPDATE todoitem SET itemname=\"%@\" WHERE id = %li ", todoitem.todoitem, (long)todoitem.id];
                            sqlite3_stmt *statement;
                            if (sqlite3_prepare_v2(database, [updateSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
                                if (sqlite3_step(statement) == SQLITE_DONE) {
@@ -98,6 +122,21 @@ sqlite3 *database = nil;
                                }
                                sqlite3_finalize(statement);
                            }
+    return todoitem;
+}*/
+
+- (ToDoItem *) updateToDoItem:(ToDoItem *)todoitem {
+    NSString *updateSQL = [NSString stringWithFormat: @"UPDATE todoitem SET itemname=\"%@\" WHERE id = %i ", todoitem.itemname, todoitem.id]; // I edited
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(database, [updateSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        if (sqlite3_step(statement) == SQLITE_DONE) {
+            NSLog(@"*** ToDoItem updated");
+        } else {
+            NSLog(@"ToDoItem NOT updated");
+            NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
+        }
+        sqlite3_finalize(statement);
+    }
     return todoitem;
 }
 
@@ -119,7 +158,7 @@ sqlite3 *database = nil;
 }
 
 - (void)dealloc {
-    sqlite3_close(database);
+   //sqlite3_close(database);
 }
 
 @end
