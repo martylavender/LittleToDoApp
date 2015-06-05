@@ -54,6 +54,18 @@ NSManagedObjectContext *moc = nil;
 
 
 -(ToDoItem *) createToDoItem:(ToDoItem *)todoitem {
+    
+    NSManagedObject *managedObject =
+    [NSEntityDescription insertNewObjectForEntityForName:@"TODOITEM" inManagedObjectContext:moc];
+    [managedObject setValue:TODOITEM.itemname forKey:@"itemname"];
+    
+    NSError *error;
+    if (![moc save:&error]) {
+        
+    (@"createToDoItem ERROR: %@", [error localizedDescription]);
+    
+    }
+    
     return todoitem;
 }
 
