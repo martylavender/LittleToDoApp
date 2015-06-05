@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RO2-Sr-HVK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGz-Ar-5Yv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Little To Do App-->
         <scene sceneID="MSn-Ez-IbJ">
             <objects>
                 <viewController storyboardIdentifier="MainStoryboard" id="RO2-Sr-HVK" customClass="ViewController" sceneMemberID="viewController">
@@ -49,36 +49,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fc-05-6Ut">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Little To Do App" id="BId-Up-rXu">
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
-                                            <connections>
-                                                <action selector="addToDoItem:" destination="RO2-Sr-HVK" id="TEa-2q-r1r"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.01176470588" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="leading" secondItem="cF2-3c-eAZ" secondAttribute="leading" id="2RT-ur-QYr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Fc-05-6Ut" secondAttribute="trailing" constant="-16" id="9zE-bd-DMI"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="top" secondItem="6Fc-05-6Ut" secondAttribute="bottom" constant="37" id="AJh-jb-hDk"/>
+                            <constraint firstItem="cF2-3c-eAZ" firstAttribute="leading" secondItem="PVg-lh-fvX" secondAttribute="leading" id="0zP-ao-4en"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="2yU-uv-HzB"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="HVk-EF-HBB"/>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="IKd-R1-iNH"/>
                             <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="N1K-D7-lb2"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="cF2-3c-eAZ" secondAttribute="bottom" id="Obp-4R-fz0"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="RQr-tA-g8v"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="SzG-3f-PwD"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="centerX" secondItem="tjF-ML-1Ba" secondAttribute="centerX" id="UhV-v0-S0i"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="22" id="UoD-tw-9Ec"/>
                             <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="cr5-aE-mZE"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="top" secondItem="wZH-8B-G0z" secondAttribute="bottom" id="gyV-1X-1Tr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="trailing" secondItem="cF2-3c-eAZ" secondAttribute="trailing" id="roq-9n-cWO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
+                            <connections>
+                                <action selector="addToDoItem:" destination="RO2-Sr-HVK" id="TEa-2q-r1r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cF2-3c-eAZ" id="wCC-jf-08c"/>
                         <outlet property="toDoItem" destination="tjF-ML-1Ba" id="o20-Pu-Hgy"/>
@@ -86,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcc-WW-ExB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="327"/>
+            <point key="canvasLocation" x="632" y="327"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="vFr-bP-g8P">
@@ -140,7 +132,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="IPh-0w-ELK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="606" y="289"/>
+            <point key="canvasLocation" x="1418" y="289"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L0d-Jl-Tcr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cGz-Ar-5Yv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ub7-L6-Z7D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RO2-Sr-HVK" kind="relationship" relationship="rootViewController" id="82K-gw-J1J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrU-km-x7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="327"/>
         </scene>
     </scenes>
     <resources>
