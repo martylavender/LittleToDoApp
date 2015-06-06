@@ -12,7 +12,7 @@
 @protocol ToDoItemSvc <NSObject>
 
 - (ToDoItem *) createToDoItem: (ToDoItem *) todoitem;
-- (NSMutableArray *) retrieveAllToDoItems;
+- (NSArray *) retrieveAllToDoItems;
 - (ToDoItem *) updateToDoItem: (ToDoItem *) todoitem;
 - (ToDoItem *) deleteToDoItem: (ToDoItem *) todoitem;
 
