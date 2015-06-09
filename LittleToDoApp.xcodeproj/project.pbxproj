@@ -15,7 +15,6 @@
 		4C018CCB1B276ED5009B0042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C018CCA1B276ED5009B0042 /* Images.xcassets */; };
 		4C018CCE1B276ED5009B0042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C018CCC1B276ED5009B0042 /* LaunchScreen.xib */; };
 		4C018CDA1B276ED5009B0042 /* LittleToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CD91B276ED5009B0042 /* LittleToDoAppTests.m */; };
-		4C018CE51B276FFD009B0042 /* ItemDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CE41B276FFD009B0042 /* ItemDetail.m */; };
 		4C018CE81B2774E0009B0042 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CE71B2774E0009B0042 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +43,6 @@
 		4C018CD31B276ED5009B0042 /* LittleToDoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleToDoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C018CD81B276ED5009B0042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C018CD91B276ED5009B0042 /* LittleToDoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleToDoAppTests.m; sourceTree = "<group>"; };
-		4C018CE31B276FFD009B0042 /* ItemDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetail.h; sourceTree = "<group>"; };
-		4C018CE41B276FFD009B0042 /* ItemDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetail.m; sourceTree = "<group>"; };
 		4C018CE61B2774E0009B0042 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4C018CE71B2774E0009B0042 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,8 +92,6 @@
 				4C018CC51B276ED5009B0042 /* ViewController.m */,
 				4C018CE61B2774E0009B0042 /* SecondViewController.h */,
 				4C018CE71B2774E0009B0042 /* SecondViewController.m */,
-				4C018CE31B276FFD009B0042 /* ItemDetail.h */,
-				4C018CE41B276FFD009B0042 /* ItemDetail.m */,
 				4C018CC71B276ED5009B0042 /* Main.storyboard */,
 				4C018CCA1B276ED5009B0042 /* Images.xcassets */,
 				4C018CCC1B276ED5009B0042 /* LaunchScreen.xib */,
@@ -234,7 +229,6 @@
 			files = (
 				4C018CE81B2774E0009B0042 /* SecondViewController.m in Sources */,
 				4C018CC01B276ED5009B0042 /* AppDelegate.m in Sources */,
-				4C018CE51B276FFD009B0042 /* ItemDetail.m in Sources */,
 				4C018CBD1B276ED5009B0042 /* main.m in Sources */,
 				4C018CC61B276ED5009B0042 /* ViewController.m in Sources */,
 				4C018CC31B276ED5009B0042 /* LittleToDoApp.xcdatamodeld in Sources */,
