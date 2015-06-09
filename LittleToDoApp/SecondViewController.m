@@ -2,65 +2,65 @@
 //  SecondViewController.m
 //  LittleToDoApp
 //
-//  Created by Marty Lavender on 5/22/15.
+//  Created by Marty Lavender on 6/9/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
 #import "SecondViewController.h"
-#import "ViewController.h"
-//#import "ToDoItemSvcArchive.h"
-//#import "ToDoItemSvc.h"
-//#import "ToDoItemSvcSQLite.h"
-
 
 @interface SecondViewController ()
 
 @end
 
-@implementation SecondViewController {
+@implementation SecondViewController
 
-}
+@synthesize item;
 
-@synthesize toDoItem;
-@synthesize toDoItemObject;
-@synthesize tableView;
-
-/*- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (self.item) {
+        [self.itemTextField setText:[self.item valueForKey:@"itemname"]];
+    }
     
-    toDoItem.text = toDoItemObject.todoitem;
-
-}*/
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    toDoItem.text = toDoItemObject.itemname; // I edited
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma hiding status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
+- (IBAction)updateItemTextField:(id)sender {
+    NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]). managedObjectContext;
+    //NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (self.item) {
+        // Update existing device
+        [self.item setValue:self.itemTextField.text forKey:@"itemname"];
+    } else {
+        // Create a new device
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+        [newDevice setValue:self.itemTextField.text forKey:@"itemname"];
+    }
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)updateToDoItem:(id)sender {
-    NSLog(@"updatingToDoItem: Updating ToDoItem");
-    toDoItemObject.itemname = toDoItem.text;
-    //[[toDoItemObject new] updateToDoItem:toDoItemObject];
-}
+/*
+#pragma mark - Navigation
 
-/*- (IBAction)updateToDoItem:(id)sender {
-    NSLog(@"updatingToDoItem: Updating ToDoItem");
-    toDoItemObject.todoitem = toDoItem.text;
-}*/
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

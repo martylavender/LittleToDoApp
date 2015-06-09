@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "44BD97AD1B0BE0A400AFD5FA"
+               BlueprintIdentifier = "4C018CB61B276ED5009B0042"
                BuildableName = "LittleToDoApp.app"
                BlueprintName = "LittleToDoApp"
                ReferencedContainer = "container:LittleToDoApp.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "44BD97D31B0BE0A400AFD5FA"
+               BlueprintIdentifier = "4C018CD21B276ED5009B0042"
                BuildableName = "LittleToDoAppTests.xctest"
                BlueprintName = "LittleToDoAppTests"
                ReferencedContainer = "container:LittleToDoApp.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "44BD97D31B0BE0A400AFD5FA"
+               BlueprintIdentifier = "4C018CD21B276ED5009B0042"
                BuildableName = "LittleToDoAppTests.xctest"
                BlueprintName = "LittleToDoAppTests"
                ReferencedContainer = "container:LittleToDoApp.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "44BD97AD1B0BE0A400AFD5FA"
+            BlueprintIdentifier = "4C018CB61B276ED5009B0042"
             BuildableName = "LittleToDoApp.app"
             BlueprintName = "LittleToDoApp"
             ReferencedContainer = "container:LittleToDoApp.xcodeproj">
@@ -76,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "44BD97AD1B0BE0A400AFD5FA"
+            BlueprintIdentifier = "4C018CB61B276ED5009B0042"
             BuildableName = "LittleToDoApp.app"
             BlueprintName = "LittleToDoApp"
             ReferencedContainer = "container:LittleToDoApp.xcodeproj">
@@ -95,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "44BD97AD1B0BE0A400AFD5FA"
+            BlueprintIdentifier = "4C018CB61B276ED5009B0042"
             BuildableName = "LittleToDoApp.app"
             BlueprintName = "LittleToDoApp"
             ReferencedContainer = "container:LittleToDoApp.xcodeproj">

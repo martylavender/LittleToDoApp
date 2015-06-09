@@ -2,23 +2,17 @@
 //  SecondViewController.h
 //  LittleToDoApp
 //
-//  Created by Marty Lavender on 5/22/15.
+//  Created by Marty Lavender on 6/9/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ToDoItem.h"
+#import "ViewController.h"
+#import "AppDelegate.h"
 
-@class ViewController;
+@interface SecondViewController : ViewController
 
-@interface SecondViewController : UIViewController
+@property (strong) NSManagedObject *item;
 
-//@property (nonatomic, strong) IBOutlet UILabel *toDoItem;
-@property (nonatomic, strong) ToDoItem *toDoItemObject;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-
-@property (nonatomic, strong) IBOutlet UITextField *toDoItem;
-- (IBAction)updateToDoItem:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UITextField *updateItemTextField;
 
 @end

@@ -2,262 +2,126 @@
 //  ViewController.m
 //  LittleToDoApp
 //
-//  Created by Marty Lavender on 5/19/15.
+//  Created by Marty Lavender on 6/9/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "ToDoItem.h"
-//#import "ToDoItemSvcCache.h"
-//#import "ToDoItemSvcArchive.h"
-//#import "ToDoItemSvcSQLite.h"
-#import "ToDoItemSvcCoreData.h"
-#import "UIScrollView+EmptyDataSet.h"
-
+#import "ItemDetail.h"
 
 @interface ViewController ()
+
+@property (strong) NSMutableArray *items;
+
+@property(nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation ViewController
 
-@synthesize tableView;
-@synthesize myObjectsIndex;
-
-
-//ToDoItemSvcCache *ToDoItemSvc = nil;
-//ToDoItemSvcArchive *ToDoItemSvc = nil;
-//ToDoItemSvcSQLite *ToDoItemSvc = nil;
-ToDoItemSvcCoreData *ToDoItemSvc = nil;
-
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
-    
-    //ToDoItemSvc = [[ToDoItemSvcCache alloc] init];
-    //ToDoItemSvc = [[ToDoItemSvcArchive alloc] init];
-    //ToDoItemSvc = [[ToDoItemSvcSQLite alloc] init];
-    ToDoItemSvc = [[ToDoItemSvcCoreData alloc] init];
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)dealloc
-{
-    self.tableView.emptyDataSetSource = nil;
-    self.tableView.emptyDataSetDelegate = nil;
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.tableView reloadData];
-}
-
-//dismisses the keyboard when tapping off of it
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    [self.toDoItem resignFirstResponder];
-    
-}
-
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)deleteToDoItem:(id)sender {
-    NSLog(@"Deleting ToDoItem");
-    
-    [self.view endEditing:YES];
-    
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
 }
 
-
-
-/*- (IBAction)addToDoItem:(id)sender {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    [self.view endEditing:YES];
-    
-    NSLog(@"saveToDoItem: Adding ToDoItem");
-    ToDoItem *todoitem = [[ToDoItem alloc] init];
-    todoitem.itemname = _toDoItem.text;
-    [ToDoItemSvc createToDoItem:todoitem];
-    todoitem.todoitem = _toDoItem.text;
-    [ToDoItemSvc createToDoItem:todoitem];
-    
-    
-    //clears text field on save
-    _toDoItem.text = @"";
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
+    self.items = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [self.tableView reloadData];
-    NSLog(@"saveToDoItem: todoitem saved");
-
-}*/
-
-- (IBAction)addToDoItem:(id)sender {
-    [self.view endEditing:YES];
-    
-    NSLog(@"saveToDoItem: Adding ToDoItem");
-    ToDoItem *todoitem = [[ToDoItem alloc] init];
-    todoitem.itemname = _toDoItem.text;  // I edited
-    [ToDoItemSvc createToDoItem:todoitem];
-    
-    //clears text field on save
-    _toDoItem.text = @"";
-    
-    [self.tableView reloadData];
-    NSLog(@"saveToDoItem: todoitem saved");
 }
 
-/*- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"toDoItemCell";
-    UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:simpleTableIdentifier];
-    }
-    ToDoItem *toDoItem = [[ToDoItemSvc retrieveAllToDoItems]
-                        objectAtIndex:indexPath.row];
-    cell.textLabel.text = [toDoItem description];
-    return cell;
-}*/
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"toDoItemCell";
-    UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:simpleTableIdentifier];
-    }
-    ToDoItem *toDoItem = [[ToDoItemSvc retrieveAllToDoItems]
-                          objectAtIndex:indexPath.row];
-    cell.textLabel.text = [toDoItem itemname]; // I edited
-    return cell;
-}
-
-
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [[ToDoItemSvc retrieveAllToDoItems] count];
-
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
     return 1;
-
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return self.items.count;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    NSManagedObject *item = [self.items objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [item valueForKey:@"itemname"]]];
+    [cell.detailTextLabel setText:[item valueForKey:@"itemname"]];
+    
+    return cell;
+}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"viewToDoItem"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        SecondViewController *destViewController = segue.destinationViewController;
-        destViewController.toDoItemObject = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete object from database
+        [context deleteObject:[self.items objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.items removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
-#pragma hiding status bar
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
+- (IBAction)cancel:(id)sender {
+    //implement action here for cancel button to dismiss keyboard
 }
 
-// here we get back from both styles
+- (IBAction)saveItem:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Create a new managed object
+    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    [newItem setValue:self.itemTextField.text forKey:@"itemname"];
+    NSLog(@"Creating new item");
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
 
-- (IBAction)unwindFromDetailViewController:(UIStoryboardSegue *)segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // UIViewController *detailViewController = [segue sourceViewController];
-    NSLog(@"%@", segue.identifier);
+    if ([[segue identifier] isEqualToString:@"updateItem"]) {
+        NSManagedObject *selectedItem = [self.items objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        ViewController *destViewController = segue.destinationViewController;
+        destViewController.itemTextField = selectedItem;
+    }
 }
-
-//Allows the delete button to show up when left swipping a list item
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return YES - we will be able to delete all rows
-    return YES;
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ToDoItem *toDoItem = [[ToDoItemSvc retrieveAllToDoItems] objectAtIndex:indexPath.row];
-    
-    [ToDoItemSvc deleteToDoItem:toDoItem];
-    [self.tableView reloadData];
-    
-    NSLog(@"Removing data");
-}
-
-//empty table view
-
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
-{
-    NSString *text = @"There is nothing here";
-    
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
-                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
-    
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-//sets the description
-
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
-{
-    NSString *text = @"Type in a new to do item \n and tap the save button to get started";
-    
-    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
-                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
-                                 NSParagraphStyleAttributeName: paragraph};
-    
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-/*
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
-{
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
-    
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
-}*/
-
-//sets the image
-
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIImage imageNamed:@"emptytableimg"];
-}
-
-//sets the color
-
-- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIColor whiteColor];
-}
-
-
 
 @end
