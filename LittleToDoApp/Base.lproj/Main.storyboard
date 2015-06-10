@@ -22,11 +22,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-D1-UO2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-D1-UO2">
                                 <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="4ze-n0-uqL"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemCell" textLabel="EUa-T2-a0y" style="IBUITableViewCellStyleDefault" id="pyJ-9x-IDj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="EUa-T2-a0y" style="IBUITableViewCellStyleDefault" id="pyJ-9x-IDj">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyJ-9x-IDj" id="zwh-di-aiV">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -39,9 +42,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="PAJ-F3-QK0" kind="presentation" identifier="updateItem" id="B5X-Hf-eGF"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -52,71 +52,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iVf-hU-UN3" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="3nb-W2-tzx"/>
+                            <constraint firstItem="t1j-D1-UO2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4q2-Wd-3Jk"/>
                             <constraint firstItem="iVf-hU-UN3" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="9eg-Dq-vuL"/>
                             <constraint firstItem="iVf-hU-UN3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Znz-6b-Zfz"/>
+                            <constraint firstItem="t1j-D1-UO2" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="wjw-wp-b0z"/>
+                            <constraint firstItem="t1j-D1-UO2" firstAttribute="centerX" secondItem="iVf-hU-UN3" secondAttribute="centerX" id="zwc-XD-AfE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Hh-jY-Sgn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pYc-Fh-mCx">
-                            <connections>
-                                <action selector="cancel:" destination="vXZ-lx-hvc" id="6C8-PR-KIK"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pYc-Fh-mCx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="onc-sQ-EL0">
                             <connections>
-                                <action selector="saveItem:" destination="vXZ-lx-hvc" id="DPe-db-7lO"/>
+                                <action selector="addItem:" destination="vXZ-lx-hvc" id="1T3-pu-SLM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="itemTextField" destination="iVf-hU-UN3" id="5DA-SN-InO"/>
+                        <outlet property="itemTextField" destination="iVf-hU-UN3" id="Eyr-Xg-nao"/>
+                        <outlet property="tableView" destination="t1j-D1-UO2" id="Jyz-BV-kqi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1335" y="1118"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="n1Z-gk-EFw">
-            <objects>
-                <viewController id="PAJ-F3-QK0" customClass="SecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u1O-Z3-frG"/>
-                        <viewControllerLayoutGuide type="bottom" id="VZW-Hf-8iR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qLr-h9-IKX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfh-ox-Dxw">
-                                <rect key="frame" x="16" y="149" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-M4-Cmn">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Edit your item" id="4i2-g3-AMM"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Tfh-ox-Dxw" firstAttribute="top" secondItem="u1O-Z3-frG" secondAttribute="bottom" constant="129" id="6EI-KK-ZJF"/>
-                            <constraint firstItem="Tfh-ox-Dxw" firstAttribute="trailing" secondItem="qLr-h9-IKX" secondAttribute="trailingMargin" id="NH6-9n-aDw"/>
-                            <constraint firstItem="Tfh-ox-Dxw" firstAttribute="leading" secondItem="qLr-h9-IKX" secondAttribute="leadingMargin" id="Por-4U-5H7"/>
-                            <constraint firstItem="Tfh-ox-Dxw" firstAttribute="leading" secondItem="qLr-h9-IKX" secondAttribute="leadingMargin" id="WM9-82-syf"/>
-                            <constraint firstItem="Tfh-ox-Dxw" firstAttribute="trailing" secondItem="qLr-h9-IKX" secondAttribute="trailingMargin" id="uuI-Ek-LZX"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="itemTextField" destination="Tfh-ox-Dxw" id="GFl-eo-ey5"/>
-                        <outlet property="updateItemTextField" destination="Tfh-ox-Dxw" id="73C-Vm-qee"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="muX-0b-k4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2034" y="1118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eRc-GY-ahg">

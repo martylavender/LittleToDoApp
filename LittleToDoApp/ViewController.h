@@ -7,18 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
-
-- (IBAction)saveItem:(id)sender;
-//- (IBAction)cancelItem:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UITextField *itemTextField;
-
-
-
-
+@interface ViewController : UIViewController
 
 @end
 

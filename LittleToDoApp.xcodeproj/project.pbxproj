@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		4C018CBD1B276ED5009B0042 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CBC1B276ED5009B0042 /* main.m */; };
 		4C018CC01B276ED5009B0042 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CBF1B276ED5009B0042 /* AppDelegate.m */; };
-		4C018CC31B276ED5009B0042 /* LittleToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CC11B276ED5009B0042 /* LittleToDoApp.xcdatamodeld */; };
 		4C018CC61B276ED5009B0042 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CC51B276ED5009B0042 /* ViewController.m */; };
 		4C018CC91B276ED5009B0042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C018CC71B276ED5009B0042 /* Main.storyboard */; };
 		4C018CCB1B276ED5009B0042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C018CCA1B276ED5009B0042 /* Images.xcassets */; };
 		4C018CCE1B276ED5009B0042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C018CCC1B276ED5009B0042 /* LaunchScreen.xib */; };
 		4C018CDA1B276ED5009B0042 /* LittleToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CD91B276ED5009B0042 /* LittleToDoAppTests.m */; };
-		4C018CE81B2774E0009B0042 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018CE71B2774E0009B0042 /* SecondViewController.m */; };
+		4C018D261B29005F009B0042 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D251B29005F009B0042 /* Item.m */; };
+		4C018D2B1B290122009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D291B290122009B0042 /* LTAModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,6 @@
 		4C018CBC1B276ED5009B0042 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C018CBE1B276ED5009B0042 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4C018CBF1B276ED5009B0042 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4C018CC21B276ED5009B0042 /* LittleToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleToDoApp.xcdatamodel; sourceTree = "<group>"; };
 		4C018CC41B276ED5009B0042 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4C018CC51B276ED5009B0042 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4C018CC81B276ED5009B0042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,8 +42,9 @@
 		4C018CD31B276ED5009B0042 /* LittleToDoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleToDoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C018CD81B276ED5009B0042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C018CD91B276ED5009B0042 /* LittleToDoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleToDoAppTests.m; sourceTree = "<group>"; };
-		4C018CE61B2774E0009B0042 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		4C018CE71B2774E0009B0042 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4C018D241B29005F009B0042 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		4C018D251B29005F009B0042 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		4C018D2A1B290122009B0042 /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,17 +86,17 @@
 		4C018CB91B276ED5009B0042 /* LittleToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C018D241B29005F009B0042 /* Item.h */,
+				4C018D251B29005F009B0042 /* Item.m */,
 				4C018CBE1B276ED5009B0042 /* AppDelegate.h */,
 				4C018CBF1B276ED5009B0042 /* AppDelegate.m */,
 				4C018CC41B276ED5009B0042 /* ViewController.h */,
 				4C018CC51B276ED5009B0042 /* ViewController.m */,
-				4C018CE61B2774E0009B0042 /* SecondViewController.h */,
-				4C018CE71B2774E0009B0042 /* SecondViewController.m */,
 				4C018CC71B276ED5009B0042 /* Main.storyboard */,
 				4C018CCA1B276ED5009B0042 /* Images.xcassets */,
 				4C018CCC1B276ED5009B0042 /* LaunchScreen.xib */,
-				4C018CC11B276ED5009B0042 /* LittleToDoApp.xcdatamodeld */,
 				4C018CBA1B276ED5009B0042 /* Supporting Files */,
+				4C018D291B290122009B0042 /* LTAModel.xcdatamodeld */,
 			);
 			path = LittleToDoApp;
 			sourceTree = "<group>";
@@ -227,11 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C018CE81B2774E0009B0042 /* SecondViewController.m in Sources */,
+				4C018D261B29005F009B0042 /* Item.m in Sources */,
 				4C018CC01B276ED5009B0042 /* AppDelegate.m in Sources */,
 				4C018CBD1B276ED5009B0042 /* main.m in Sources */,
+				4C018D2B1B290122009B0042 /* LTAModel.xcdatamodeld in Sources */,
 				4C018CC61B276ED5009B0042 /* ViewController.m in Sources */,
-				4C018CC31B276ED5009B0042 /* LittleToDoApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +426,7 @@
 				4C018CDF1B276ED5009B0042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C018CE01B276ED5009B0042 /* Build configuration list for PBXNativeTarget "LittleToDoAppTests" */ = {
 			isa = XCConfigurationList;
@@ -434,17 +435,18 @@
 				4C018CE21B276ED5009B0042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4C018CC11B276ED5009B0042 /* LittleToDoApp.xcdatamodeld */ = {
+		4C018D291B290122009B0042 /* LTAModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4C018CC21B276ED5009B0042 /* LittleToDoApp.xcdatamodel */,
+				4C018D2A1B290122009B0042 /* LTAModel.xcdatamodel */,
 			);
-			currentVersion = 4C018CC21B276ED5009B0042 /* LittleToDoApp.xcdatamodel */;
-			path = LittleToDoApp.xcdatamodeld;
+			currentVersion = 4C018D2A1B290122009B0042 /* LTAModel.xcdatamodel */;
+			path = LTAModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
