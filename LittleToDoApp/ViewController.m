@@ -33,7 +33,13 @@
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    //Lets the tableview know we're potentially doing a bunch of updates.
     [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    //We're finished updating the tableview's data.
+    [self.tableView endUpdates];
 }
 
 
@@ -45,13 +51,8 @@
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
                           withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
-        case NSFetchedResultsChangeMove:
-            NSLog(@"A table item was moved");
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            NSLog(@"A table item was updated");
+        
+          default:
             break;
             
         case NSFetchedResultsChangeDelete:
@@ -87,13 +88,7 @@
     
 }
 
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
-}
-
-
-- (NSFetchedResultsController *)fetchedResultsController {
+/*- (NSFetchedResultsController *)fetchedResultsController {
     
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
@@ -114,6 +109,36 @@
 
     [self.tableView reloadData];
     NSLog(@"Reloading table");
+    
+    return _fetchedResultsController;
+}*/
+
+- (NSFetchedResultsController*)fetchedResultsController
+{
+    // if allready created return the created controller;
+    if (_fetchedResultsController) return _fetchedResultsController;
+    
+    // create a managed object context
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    // create fetch request for demo entities
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item"  inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    // set sort properties
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemname" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // create a new NSFetchedResultsController
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"ItemCache"];
+
+    [frc setDelegate:self];
+    
+    // assign the created controller to the property
+    [self setFetchedResultsController:frc];
     
     return _fetchedResultsController;
 }
@@ -157,15 +182,36 @@
     return self.items.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"itemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     NSManagedObject *item = [self.items objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [item valueForKey:@"itemname"]]];
     [cell.detailTextLabel setText:[item valueForKey:@"itemname"]];
+    
+    
+    
+    return cell;
+}*/
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"itemCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
+    
+    //Filling the actual data into a cell has been factored out to allow code reuse when receiving a NSFetchedResultsChangeUpdate.
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
