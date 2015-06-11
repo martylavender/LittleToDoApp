@@ -219,12 +219,13 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
-        [segue.destinationViewController setItemname:[item valueForKey:@"itemname"]];
+        [segue.destinationViewController setToDoItemName:[item valueForKey:@"itemname"]];
     }
 }
 
 #pragma mark - Unwind the segue back to the view controller
 
-
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+}
 
 @end
