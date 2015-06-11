@@ -14,9 +14,15 @@
 
 @implementation EditItem
 
+@synthesize editItemField;
+@synthesize toDoItemName;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    editItemField.text = toDoItemName;
+
 }
 
 - (void)didReceiveMemoryWarning {

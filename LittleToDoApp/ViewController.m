@@ -225,7 +225,12 @@
 
 #pragma mark - Unwind the segue back to the view controller
 
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-}
+/*-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    if ([segue.identifier isEqualToString:@"EditItemSegue"]) {
+        NSString *itemtext = @"Hello";
+        EditItem *vc = [segue destinationViewController];
+        vc.itemTextField.text = itemtext;
+    }
+}*/
 
 @end

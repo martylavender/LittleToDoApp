@@ -10,6 +10,7 @@
 
 @interface EditItem : ViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *itemTextField;
+@property (strong, nonatomic) IBOutlet UITextField *editItemField;
+@property (nonatomic, strong) NSString *toDoItemName;
 
 @end
