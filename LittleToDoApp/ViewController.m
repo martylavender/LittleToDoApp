@@ -9,12 +9,14 @@
 #import "AppDelegate.h"
 #import "Item.h"
 #import "ViewController.h"
+#import "EditItem.h"
 
-@interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource>
+@interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *itemTextField;
 @property (strong, nonatomic) IBOutlet UILabel *itemStatus;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -49,6 +51,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -204,6 +209,23 @@
         [self.managedObjectContext deleteObject:managedObject];
         [self.managedObjectContext save:nil];
     }
+}
+
+#pragma mark - Pass the data tapped to the second view controller
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
+        [segue.destinationViewController setItemname:[item valueForKey:@"itemname"]];
+    }
+}
+
+#pragma mark - Unwind the segue back to the view controller
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
 
 @end

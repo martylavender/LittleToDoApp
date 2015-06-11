@@ -42,6 +42,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="SQd-AN-lcn" kind="presentation" identifier="EditItemSegue" id="uLH-lo-HtM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -75,6 +78,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1335" y="1118"/>
+        </scene>
+        <!--Edit Item-->
+        <scene sceneID="IaL-Bf-CVX">
+            <objects>
+                <viewController id="SQd-AN-lcn" customClass="EditItem" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cXC-Ok-gUu"/>
+                        <viewControllerLayoutGuide type="bottom" id="OPE-cl-8ex"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WSI-TS-1gG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcl-QS-cmn">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Srf-cm-OZJ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Cpb-rc-KE5">
+                                            <connections>
+                                                <segue destination="Sm5-kN-HHN" kind="unwind" unwindAction="prepareForUnwind:" id="OZH-31-gfe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Update" id="iTR-GM-2Cz"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-gU-ZQF">
+                                <rect key="frame" x="252" y="183" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="h9R-vX-nS6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nO3-gU-ZQF" firstAttribute="centerX" secondItem="rcl-QS-cmn" secondAttribute="centerX" id="B7J-Kw-PCi"/>
+                            <constraint firstItem="rcl-QS-cmn" firstAttribute="leading" secondItem="WSI-TS-1gG" secondAttribute="leading" id="h5H-rd-iql"/>
+                            <constraint firstItem="nO3-gU-ZQF" firstAttribute="centerX" secondItem="WSI-TS-1gG" secondAttribute="centerX" id="jL0-2b-l6t"/>
+                            <constraint firstItem="OPE-cl-8ex" firstAttribute="top" secondItem="nO3-gU-ZQF" secondAttribute="bottom" constant="387" id="nQl-n1-2Ei"/>
+                            <constraint firstItem="rcl-QS-cmn" firstAttribute="top" secondItem="cXC-Ok-gUu" secondAttribute="bottom" id="uOa-RZ-0Yu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="itemTextField" destination="nO3-gU-ZQF" id="UIe-M7-ifm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17X-TS-03L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Sm5-kN-HHN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2032" y="1118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eRc-GY-ahg">
