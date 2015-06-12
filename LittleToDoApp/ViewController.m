@@ -246,10 +246,11 @@
     
     if ([[segue identifier] isEqualToString:@"EditItemSegue"])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
         EditItem *destination = (EditItem *)segue.destinationViewController;
-        destination.managedObjectContext=self.managedObjectContext;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Item *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        destination.managedObjectContext = self.managedObjectContext;
+        destination.toDoItem = item;
     }
 }
 
