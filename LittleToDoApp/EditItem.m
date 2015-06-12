@@ -39,13 +39,14 @@
         
 
     }
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
