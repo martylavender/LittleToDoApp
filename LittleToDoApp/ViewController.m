@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *itemTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UILabel *itemStatus;
 
 @property (nonatomic, strong) Item *toDoItem;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -195,27 +194,6 @@
         self.itemTextField.text = @"";
         NSError *error;
         [context save:&error];
-        self.itemStatus.text = @"Item saved";
-    }
-}
-
-- (IBAction)findItem:(id)sender {
-    NSManagedObjectContext *context = self.managedObjectContext;
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"(itemname = %@)", self.itemTextField.text];
-    [request setPredicate:pred];
-    
-    NSError *error;
-    NSArray *objects = [context executeFetchRequest:request error:&error];
-    
-    if ([objects count] == 0) {
-        self.itemStatus.text = @"No matches found";
-    } else {
-        Item *match = [objects firstObject];
-        self.itemTextField.text = match.itemname;
-        self.itemStatus.text = [NSString stringWithFormat: @"%lu matches found", (unsigned long)[objects count]];
     }
 }
 
