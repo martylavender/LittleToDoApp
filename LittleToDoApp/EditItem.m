@@ -35,6 +35,7 @@
     
     if (self.editItemField) {
         // Update existing device
+        self.toDoItem.itemname = self.editItemField.text;
         
 
     }
