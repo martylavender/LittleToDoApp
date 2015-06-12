@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "ViewController.h"
 #import "EditItem.h"
+#import "UIScrollView+EmptyDataSet.h"
 
 @interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -24,6 +25,8 @@
 @end
 
 @implementation ViewController
+
+
 
 #pragma mark - Properties
 
@@ -52,14 +55,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView setDelegate:self];
-    [self.tableView setDataSource:self];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Error: %@", error);
         abort();
     }
+}
+
+- (void)dealloc
+{
+    self.tableView.emptyDataSetSource = nil;
+    self.tableView.emptyDataSetDelegate = nil;
+}
+
+//dismisses the keyboard when tapping off of it
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    [self.itemTextField resignFirstResponder];
+    
 }
 
 #pragma mark - UITableView Data Source
@@ -219,7 +236,9 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [segue.destinationViewController setToDoItemName:[item valueForKey:@"itemname"]];
+
     }
 }
 
@@ -227,5 +246,57 @@
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
+
+//empty table view
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"There is nothing here";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+//sets the description
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Type in a new to do item \n and tap the save button to get started";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+ {
+ NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
+ 
+ return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}
+
+//sets the image
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"emptytableimg"];
+}
+
+//sets the color
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+
 
 @end

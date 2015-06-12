@@ -17,6 +17,7 @@
 		4C018D261B29005F009B0042 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D251B29005F009B0042 /* Item.m */; };
 		4C018D2B1B290122009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D291B290122009B0042 /* LTAModel.xcdatamodeld */; };
 		4C018D2E1B291070009B0042 /* EditItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D2D1B291070009B0042 /* EditItem.m */; };
+		4C018D441B2A402E009B0042 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D431B2A402E009B0042 /* UIScrollView+EmptyDataSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		4C018D2A1B290122009B0042 /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 		4C018D2C1B291070009B0042 /* EditItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItem.h; sourceTree = "<group>"; };
 		4C018D2D1B291070009B0042 /* EditItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItem.m; sourceTree = "<group>"; };
+		4C018D421B2A402E009B0042 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		4C018D431B2A402E009B0042 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 		4C018CB91B276ED5009B0042 /* LittleToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C018D421B2A402E009B0042 /* UIScrollView+EmptyDataSet.h */,
+				4C018D431B2A402E009B0042 /* UIScrollView+EmptyDataSet.m */,
 				4C018D241B29005F009B0042 /* Item.h */,
 				4C018D251B29005F009B0042 /* Item.m */,
 				4C018CBE1B276ED5009B0042 /* AppDelegate.h */,
@@ -238,6 +243,7 @@
 				4C018CBD1B276ED5009B0042 /* main.m in Sources */,
 				4C018D2B1B290122009B0042 /* LTAModel.xcdatamodeld in Sources */,
 				4C018CC61B276ED5009B0042 /* ViewController.m in Sources */,
+				4C018D441B2A402E009B0042 /* UIScrollView+EmptyDataSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

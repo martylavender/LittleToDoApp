@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
 @property (nonatomic, strong) NSString *toDoItemName;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

@@ -22,14 +22,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-D1-UO2">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="t1j-D1-UO2">
+                                <rect key="frame" x="0.0" y="220" width="600" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="4ze-n0-uqL"/>
+                                    <constraint firstAttribute="height" constant="380" id="4ze-n0-uqL"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="EUa-T2-a0y" style="IBUITableViewCellStyleDefault" id="pyJ-9x-IDj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="EUa-T2-a0y" style="IBUITableViewCellStyleDefault" id="pyJ-9x-IDj">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyJ-9x-IDj" id="zwh-di-aiV">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -63,7 +63,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Hh-jY-Sgn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pYc-Fh-mCx"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="onc-sQ-EL0">
                             <connections>
                                 <action selector="addItem:" destination="vXZ-lx-hvc" id="1T3-pu-SLM"/>
@@ -100,7 +99,11 @@
                                                 <segue destination="Sm5-kN-HHN" kind="unwind" unwindAction="prepareForUnwind:" id="adf-UY-s1T"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Update" id="iTR-GM-2Cz"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Update" id="iTR-GM-2Cz">
+                                            <connections>
+                                                <action selector="save:" destination="SQd-AN-lcn" id="LaO-FS-VGQ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -121,7 +124,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="itemTextField" destination="nO3-gU-ZQF" id="UIe-M7-ifm"/>
+                        <outlet property="editItemField" destination="nO3-gU-ZQF" id="QSe-Ly-XuH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17X-TS-03L" userLabel="First Responder" sceneMemberID="firstResponder"/>

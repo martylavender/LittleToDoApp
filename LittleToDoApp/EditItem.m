@@ -7,6 +7,7 @@
 //
 
 #import "EditItem.h"
+#import "AppDelegate.h"
 
 @interface EditItem ()
 
@@ -17,19 +18,36 @@
 @synthesize editItemField;
 @synthesize toDoItemName;
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    editItemField.text = toDoItemName;
 
+    //editItemField.text = toDoItemName;
+    self.editItemField.text = self.toDoItemName;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+- (IBAction)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (self.editItemField) {
+        // Update existing device
+        [self.toDoItemName setValue:self.editItemField.text forKey:@"itemname"];
+    }
+        NSError *error = nil;
+        // Save the object to persistent store
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 
 @end
