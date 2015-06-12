@@ -10,7 +10,7 @@
 
 @class Item;
 
-@interface EditItem : ViewController
+@interface EditItem : UIViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Item *toDoItem;
