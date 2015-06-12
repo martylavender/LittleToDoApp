@@ -261,8 +261,7 @@
 
 #pragma mark - Unwind the segue back to the view controller
 
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-}
+-(IBAction)unwindToItemsViewController:(UIStoryboardSegue *)segue { }
 
 //empty table view
 

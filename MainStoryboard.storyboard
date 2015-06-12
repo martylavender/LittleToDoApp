@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="showDetail" identifier="EditItemSegue" id="0Rt-Uz-xlc"/>
+                                            <segue destination="zIW-za-xNa" kind="show" id="pMF-6Y-Xlb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
