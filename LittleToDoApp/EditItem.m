@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.managedObjectContext setValue:self.editItemField forKey:@"itemname"];
+    self.editItemField.text = self.toDoItem.itemname;
 }
 
 
