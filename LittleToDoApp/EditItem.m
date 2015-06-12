@@ -12,28 +12,15 @@
 
 @interface EditItem ()
 
+@property (strong, nonatomic) IBOutlet UITextField *editItemField;
+
 @end
 
 @implementation EditItem
 
-@synthesize editItemField;
-@synthesize toDoItemName;
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
-    //editItemField.text = toDoItemName;
-    //self.editItemField.text = self.toDoItemName;
-    [self.managedObjectContext setValue:editItemField forKey:@"itemname"];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.editItemField.text = self.toDoItem.itemname;
 }
 
 - (IBAction)save:(id)sender {
@@ -41,17 +28,16 @@
     
     if (self.editItemField) {
         // Update existing device
-        [self.toDoItemName setValue:self.editItemField.text forKey:@"itemname"];
-        
-
+        self.toDoItem.itemname = self.editItemField.text;
     }
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
