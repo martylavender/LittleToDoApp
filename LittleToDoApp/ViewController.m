@@ -194,7 +194,10 @@
         self.itemTextField.text = @"";
         NSError *error;
         [context save:&error];
+<<<<<<< HEAD
         [self.itemTextField resignFirstResponder];
+=======
+>>>>>>> origin/addingcoredata
     }
 }
 
