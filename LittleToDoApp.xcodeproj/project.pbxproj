@@ -17,19 +17,18 @@
 		44BD97C61B0BE0A400AFD5FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97C51B0BE0A400AFD5FA /* Default@2x.png */; };
 		44BD97C81B0BE0A400AFD5FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97C71B0BE0A400AFD5FA /* Default-568h@2x.png */; };
 		44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97CA1B0BE0A400AFD5FA /* ViewController.m */; };
-		44BD97CE1B0BE0A400AFD5FA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97CC1B0BE0A400AFD5FA /* ViewController.xib */; };
 		44BD97D71B0BE0A400AFD5FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B11B0BE0A400AFD5FA /* UIKit.framework */; };
 		44BD97D81B0BE0A400AFD5FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B31B0BE0A400AFD5FA /* Foundation.framework */; };
 		44BD97E01B0BE0A400AFD5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */; };
-		44BD97E31B0BE0A400AFD5FA /* LittleToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97E21B0BE0A400AFD5FA /* LittleToDoAppTests.m */; };
-		44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97EE1B0BE2C100AFD5FA /* ToDoItem.m */; };
-		44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */; };
+		4C018D471B2A47DE009B0042 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D461B2A47DE009B0042 /* Item.m */; };
+		4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D491B2A486A009B0042 /* EditItem.m */; };
+		4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C018D4B1B2A4986009B0042 /* CoreData.framework */; };
+		4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */; };
 		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
 		4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
-		4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */; };
-		4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC78F4A1B0FE6150049E227 /* SecondViewController.m */; };
+		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,26 +57,21 @@
 		44BD97C71B0BE0A400AFD5FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		44BD97C91B0BE0A400AFD5FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		44BD97CA1B0BE0A400AFD5FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		44BD97CD1B0BE0A400AFD5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		44BD97D41B0BE0A400AFD5FA /* LittleToDoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleToDoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BD97DD1B0BE0A400AFD5FA /* LittleToDoAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LittleToDoAppTests-Info.plist"; sourceTree = "<group>"; };
 		44BD97DF1B0BE0A400AFD5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		44BD97E11B0BE0A400AFD5FA /* LittleToDoAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LittleToDoAppTests.h; sourceTree = "<group>"; };
-		44BD97E21B0BE0A400AFD5FA /* LittleToDoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittleToDoAppTests.m; sourceTree = "<group>"; };
-		44BD97ED1B0BE2C100AFD5FA /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
-		44BD97EE1B0BE2C100AFD5FA /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
-		44BD97F01B0BE3AA00AFD5FA /* ToDoItemSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvc.h; sourceTree = "<group>"; };
-		44BD97F11B0BE40300AFD5FA /* ToDoItemSvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcCache.h; sourceTree = "<group>"; };
-		44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcCache.m; sourceTree = "<group>"; };
+		4C018D451B2A47DE009B0042 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		4C018D461B2A47DE009B0042 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		4C018D481B2A486A009B0042 /* EditItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItem.h; sourceTree = "<group>"; };
+		4C018D491B2A486A009B0042 /* EditItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItem.m; sourceTree = "<group>"; };
+		4C018D4B1B2A4986009B0042 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4C018D501B2A49FE009B0042 /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 		4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
-		4C5622E01B1914E200FD89AA /* ToDoItemSvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItemSvcArchive.h; sourceTree = "<group>"; };
-		4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItemSvcArchive.m; sourceTree = "<group>"; };
-		4CC78F491B0FE6150049E227 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		4CC78F4A1B0FE6150049E227 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */,
+				4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */,
 				44BD97B21B0BE0A400AFD5FA /* UIKit.framework in Frameworks */,
 				44BD97B41B0BE0A400AFD5FA /* Foundation.framework in Frameworks */,
 				44BD97B61B0BE0A400AFD5FA /* CoreGraphics.framework in Frameworks */,
@@ -125,6 +121,8 @@
 		44BD97B01B0BE0A400AFD5FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C018D4B1B2A4986009B0042 /* CoreData.framework */,
+				4C80EF751B20163200B26CFF /* libsqlite3.dylib */,
 				44BD97B11B0BE0A400AFD5FA /* UIKit.framework */,
 				44BD97B31B0BE0A400AFD5FA /* Foundation.framework */,
 				44BD97B51B0BE0A400AFD5FA /* CoreGraphics.framework */,
@@ -136,18 +134,19 @@
 			isa = PBXGroup;
 			children = (
 				4C18AAFE1B1E22DD00642AAB /* Empty Table View */,
-				44BD97EC1B0BE0AD00AFD5FA /* Model */,
 				44BD97C01B0BE0A400AFD5FA /* AppDelegate.h */,
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
+				4C018D451B2A47DE009B0042 /* Item.h */,
+				4C018D461B2A47DE009B0042 /* Item.m */,
 				44BD97C91B0BE0A400AFD5FA /* ViewController.h */,
 				44BD97CA1B0BE0A400AFD5FA /* ViewController.m */,
+				4C018D481B2A486A009B0042 /* EditItem.h */,
+				4C018D491B2A486A009B0042 /* EditItem.m */,
 				4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */,
-				44BD97CC1B0BE0A400AFD5FA /* ViewController.xib */,
 				44BD97B81B0BE0A400AFD5FA /* Supporting Files */,
 				4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */,
 				4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */,
-				4CC78F491B0FE6150049E227 /* SecondViewController.h */,
-				4CC78F4A1B0FE6150049E227 /* SecondViewController.m */,
+				4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */,
 			);
 			path = LittleToDoApp;
 			sourceTree = "<group>";
@@ -169,8 +168,6 @@
 		44BD97DB1B0BE0A400AFD5FA /* LittleToDoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				44BD97E11B0BE0A400AFD5FA /* LittleToDoAppTests.h */,
-				44BD97E21B0BE0A400AFD5FA /* LittleToDoAppTests.m */,
 				44BD97DC1B0BE0A400AFD5FA /* Supporting Files */,
 			);
 			path = LittleToDoAppTests;
@@ -183,20 +180,6 @@
 				44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		44BD97EC1B0BE0AD00AFD5FA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				44BD97ED1B0BE2C100AFD5FA /* ToDoItem.h */,
-				44BD97EE1B0BE2C100AFD5FA /* ToDoItem.m */,
-				44BD97F01B0BE3AA00AFD5FA /* ToDoItemSvc.h */,
-				44BD97F11B0BE40300AFD5FA /* ToDoItemSvcCache.h */,
-				44BD97F21B0BE40300AFD5FA /* ToDoItemSvcCache.m */,
-				4C5622E01B1914E200FD89AA /* ToDoItemSvcArchive.h */,
-				4C5622E11B1914E200FD89AA /* ToDoItemSvcArchive.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		4C18AAFE1B1E22DD00642AAB /* Empty Table View */ = {
@@ -292,7 +275,6 @@
 				4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */,
 				4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */,
 				4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */,
-				44BD97CE1B0BE0A400AFD5FA /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,14 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CC78F4B1B0FE6150049E227 /* SecondViewController.m in Sources */,
+				4C018D471B2A47DE009B0042 /* Item.m in Sources */,
 				44BD97BE1B0BE0A400AFD5FA /* main.m in Sources */,
-				4C5622E21B1914E200FD89AA /* ToDoItemSvcArchive.m in Sources */,
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
+				4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
-				44BD97EF1B0BE2C100AFD5FA /* ToDoItem.m in Sources */,
+				4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
-				44BD97F31B0BE40300AFD5FA /* ToDoItemSvcCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44BD97E31B0BE0A400AFD5FA /* LittleToDoAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,14 +343,6 @@
 				44BD97BB1B0BE0A400AFD5FA /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		44BD97CC1B0BE0A400AFD5FA /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44BD97CD1B0BE0A400AFD5FA /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 		44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */ = {
@@ -541,6 +513,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C018D501B2A49FE009B0042 /* LTAModel.xcdatamodel */,
+			);
+			currentVersion = 4C018D501B2A49FE009B0042 /* LTAModel.xcdatamodel */;
+			path = LTAModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 44BD97A61B0BE0A400AFD5FA /* Project object */;
 }
