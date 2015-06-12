@@ -43,15 +43,7 @@
         // Update existing device
         [self.toDoItemName setValue:self.editItemField.text forKey:@"itemname"];
         
-               
-        //Item *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
-        //item.itemname = editItemField.text;
-        
-        //[self.managedObjectContext save:nil];
-        
-        //set texfield.text to show user's attributes
-        
-        //self.toDoItemName = self.editItemField.text;
+
     }
         NSError *error = nil;
         // Save the object to persistent store

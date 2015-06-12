@@ -17,7 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *itemTextField;
 @property (strong, nonatomic) IBOutlet UILabel *itemStatus;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic) Item *toDoItem;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -230,7 +230,7 @@
 
 #pragma mark - Pass the data tapped to the second view controller
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+/*-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"EditItemSegue"])
     {
@@ -239,6 +239,18 @@
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [segue.destinationViewController setToDoItemName:[item valueForKey:@"itemname"]];
         
+    }
+}*/
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
+        EditItem *destination = (EditItem *)segue.destinationViewController;
+        destination.managedObjectContext=self.managedObjectContext;
+        destination.toDoItemName = item;
     }
 }
 
