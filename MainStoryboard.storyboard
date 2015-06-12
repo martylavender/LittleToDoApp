@@ -30,12 +30,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="showDetail" identifier="EditItemSeque" id="0Rt-Uz-xlc"/>
+                                            <segue destination="zIW-za-xNa" kind="show" identifier="EditItemSegue" id="pMF-6Y-Xlb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RO2-Sr-HVK" id="5H2-4L-o0C"/>
+                                    <outlet property="delegate" destination="RO2-Sr-HVK" id="n2g-77-prt"/>
+                                    <outlet property="emptyDataSetDelegate" destination="RO2-Sr-HVK" id="rjJ-Y2-FqK"/>
+                                    <outlet property="emptyDataSetSource" destination="RO2-Sr-HVK" id="d4T-3g-aZt"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
@@ -97,34 +100,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-BK-66T">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem id="W2c-dH-c6V">
-                                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="8PB-Ae-Zi2">
-                                            <connections>
-                                                <segue destination="IPh-0w-ELK" kind="unwind" identifier="goBack" unwindAction="unwindFromDetailViewController:" id="2bn-DN-CpN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Update" id="Bzq-im-MsS">
-                                            <connections>
-                                                <action selector="save:" destination="zIW-za-xNa" id="bGe-Ym-Vmw"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="6rb-hP-Whw"/>
-                            <constraint firstItem="8bg-BK-66T" firstAttribute="top" secondItem="bYr-Zb-U9f" secondAttribute="top" constant="20" id="8JB-u5-5sM"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="IiV-Hz-mjd"/>
-                            <constraint firstItem="8bg-BK-66T" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="N8b-cL-IZB"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="centerY" secondItem="bYr-Zb-U9f" secondAttribute="centerY" id="Sh1-3x-OKb"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerX" secondItem="8bg-BK-66T" secondAttribute="centerX" id="kZ0-o1-6Ob"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="0yt-kv-vKh"/>
+                        <barButtonItem title="Item" id="InG-uz-adG"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Edit Item" id="3Z4-V5-S97">
+                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="4gx-Nm-fAt">
+                            <connections>
+                                <segue destination="IPh-0w-ELK" kind="unwind" unwindAction="unwindToItemsViewController:" id="wB8-7w-cmv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cO6-tP-h5D">
+                            <connections>
+                                <action selector="save:" destination="zIW-za-xNa" id="evI-Cu-UdQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
                     </connections>

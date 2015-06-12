@@ -7,13 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "Item.h"
 
-@interface EditItem : ViewController
+@class Item;
 
-@property (strong, nonatomic) IBOutlet UITextField *editItemField;
-@property (nonatomic, strong) NSString *toDoItemName;
+@interface EditItem : UIViewController
+
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic) Item *toDoItem;
+@property (nonatomic, strong) Item *toDoItem;
 
 @end
