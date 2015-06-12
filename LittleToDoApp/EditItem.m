@@ -13,7 +13,6 @@
 @interface EditItem ()
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
-@property (nonatomic, strong) NSString *toDoItemName;
 
 @end
 
@@ -22,10 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
-    //editItemField.text = toDoItemName;
-    //self.editItemField.text = self.toDoItemName;
     [self.managedObjectContext setValue:self.editItemField forKey:@"itemname"];
 }
 
@@ -40,7 +35,6 @@
     
     if (self.editItemField) {
         // Update existing device
-        [self.toDoItemName setValue:self.editItemField.text forKey:@"itemname"];
         
 
     }
