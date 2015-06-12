@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>BBC03C28-8D11-439B-B163-920706433358</string>
+	<string>E334C540-6495-440D-94E7-C0878C0B4F06</string>
 	<key>IDESourceControlProjectName</key>
-	<string>LittleToDoApp</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B5C1289861A8B7A745689CCF1FE9D0C51AC81B91</key>
 		<string>https://github.com/martylavender/LittleToDoApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>LittleToDoApp.xcodeproj</string>
+	<string>LittleToDoApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B5C1289861A8B7A745689CCF1FE9D0C51AC81B91</key>

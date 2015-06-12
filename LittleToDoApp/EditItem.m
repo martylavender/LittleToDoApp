@@ -8,6 +8,7 @@
 
 #import "EditItem.h"
 #import "AppDelegate.h"
+#import "Item.h"
 
 @interface EditItem ()
 
@@ -25,7 +26,8 @@
     // Do any additional setup after loading the view.
 
     //editItemField.text = toDoItemName;
-    self.editItemField.text = self.toDoItemName;
+    //self.editItemField.text = self.toDoItemName;
+    [self.managedObjectContext setValue:editItemField forKey:@"itemname"];
 }
 
 
@@ -40,6 +42,16 @@
     if (self.editItemField) {
         // Update existing device
         [self.toDoItemName setValue:self.editItemField.text forKey:@"itemname"];
+        
+               
+        //Item *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        //item.itemname = editItemField.text;
+        
+        //[self.managedObjectContext save:nil];
+        
+        //set texfield.text to show user's attributes
+        
+        //self.toDoItemName = self.editItemField.text;
     }
         NSError *error = nil;
         // Save the object to persistent store

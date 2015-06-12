@@ -175,14 +175,14 @@
         [self showErrorAlert];
     }
     else {
-    
-    NSManagedObjectContext *context = self.managedObjectContext;
-    Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-    newItem.itemname = self.itemTextField.text;
-    self.itemTextField.text = @"";
-    NSError *error;
-    [context save:&error];
-    self.itemStatus.text = @"Item saved";
+        
+        NSManagedObjectContext *context = self.managedObjectContext;
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+        newItem.itemname = self.itemTextField.text;
+        self.itemTextField.text = @"";
+        NSError *error;
+        [context save:&error];
+        self.itemStatus.text = @"Item saved";
     }
 }
 
@@ -238,7 +238,7 @@
         Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
         [segue.destinationViewController setToDoItemName:[item valueForKey:@"itemname"]];
-
+        
     }
 }
 
@@ -278,10 +278,10 @@
 
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
- {
- NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
- 
- return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
+    
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
 }
 
 //sets the image
