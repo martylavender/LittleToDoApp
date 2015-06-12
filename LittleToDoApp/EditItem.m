@@ -18,16 +18,9 @@
 
 @implementation EditItem
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.editItemField.text = self.toDoItem.itemname;
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)save:(id)sender {
@@ -36,8 +29,6 @@
     if (self.editItemField) {
         // Update existing device
         self.toDoItem.itemname = self.editItemField.text;
-        
-
     }
     
     NSError *error = nil;

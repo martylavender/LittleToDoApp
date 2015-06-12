@@ -15,18 +15,16 @@
 @interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *itemTextField;
-@property (strong, nonatomic) IBOutlet UILabel *itemStatus;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) Item *toDoItem;
+@property (strong, nonatomic) IBOutlet UILabel *itemStatus;
 
+@property (nonatomic, strong) Item *toDoItem;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
 @implementation ViewController
-
-
 
 #pragma mark - Properties
 
@@ -52,11 +50,10 @@
     return _fetchedResultsController;
 }
 
+#pragma mark - UIViewController lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -70,18 +67,19 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
-- (void)dealloc
-{
-    self.tableView.emptyDataSetSource = nil;
-    self.tableView.emptyDataSetDelegate = nil;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
+    {
+        EditItem *destination = (EditItem *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Item *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        destination.managedObjectContext = self.managedObjectContext;
+        destination.toDoItem = item;
+    }
 }
 
-//dismisses the keyboard when tapping off of it
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.itemTextField resignFirstResponder];
-    
 }
 
 #pragma mark - UITableView Data Source
@@ -108,13 +106,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:managedObject];
+        [self.managedObjectContext save:nil];
+    }
+}
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = item.itemname;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
-
 
 - (void)controller:(NSFetchedResultsController *)controller
    didChangeObject:(id)anObject
@@ -147,7 +152,6 @@
     }
 }
 
-
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
@@ -171,6 +175,10 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark - Segues
+
+-(IBAction)unwindToItemsViewController:(UIStoryboardSegue *)segue { }
+
 #pragma mark - Actions
 
 - (IBAction)addItem:(id)sender {
@@ -190,18 +198,6 @@
         self.itemStatus.text = @"Item saved";
     }
 }
-
-#pragma mark - Lets display an error if there is no text
-
--(void) showErrorAlert
-{
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
-                                                         message:@"You need to enter some text" delegate:nil
-                                               cancelButtonTitle:@"Let me try again"
-                                               otherButtonTitles:nil, nil];
-    [ErrorAlert show];
-}
-
 
 - (IBAction)findItem:(id)sender {
     NSManagedObjectContext *context = self.managedObjectContext;
@@ -223,47 +219,18 @@
     }
 }
 
-#pragma mark - Swipe to remove row
+#pragma mark - Helpers
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:managedObject];
-        [self.managedObjectContext save:nil];
-    }
+-(void) showErrorAlert
+{
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
+                                                         message:@"You need to enter some text" delegate:nil
+                                               cancelButtonTitle:@"Let me try again"
+                                               otherButtonTitles:nil, nil];
+    [ErrorAlert show];
 }
 
-#pragma mark - Pass the data tapped to the second view controller
-
-/*-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
-    {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
-        [segue.destinationViewController setToDoItemName:[item valueForKey:@"itemname"]];
-        
-    }
-}*/
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
-    {
-        EditItem *destination = (EditItem *)segue.destinationViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Item *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        destination.managedObjectContext = self.managedObjectContext;
-        destination.toDoItem = item;
-    }
-}
-
-#pragma mark - Unwind the segue back to the view controller
-
--(IBAction)unwindToItemsViewController:(UIStoryboardSegue *)segue { }
-
-//empty table view
+#pragma mark - EmptyDataSet delegate
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -313,6 +280,5 @@
 {
     return [UIColor whiteColor];
 }
-
 
 @end

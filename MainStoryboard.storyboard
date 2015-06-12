@@ -36,6 +36,9 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RO2-Sr-HVK" id="5H2-4L-o0C"/>
+                                    <outlet property="delegate" destination="RO2-Sr-HVK" id="n2g-77-prt"/>
+                                    <outlet property="emptyDataSetDelegate" destination="RO2-Sr-HVK" id="rjJ-Y2-FqK"/>
+                                    <outlet property="emptyDataSetSource" destination="RO2-Sr-HVK" id="d4T-3g-aZt"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
