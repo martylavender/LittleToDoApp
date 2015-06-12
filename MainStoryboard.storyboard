@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RO2-Sr-HVK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGz-Ar-5Yv">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Little To Do App-->
         <scene sceneID="MSn-Ez-IbJ">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" id="RO2-Sr-HVK" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="RO2-Sr-HVK" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wZH-8B-G0z"/>
                         <viewControllerLayoutGuide type="bottom" id="Mlk-CU-6Q2"/>
@@ -18,98 +17,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-3c-eAZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-3c-eAZ">
                                 <rect key="frame" x="0.0" y="258" width="600" height="342"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="342" id="Zij-Ip-v73"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="toDoItemCell" id="POx-dm-cbe">
-                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="POx-dm-cbe">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="POx-dm-cbe" id="8CN-b0-AkD">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="showDetail" identifier="viewToDoItem" id="0Rt-Uz-xlc"/>
+                                            <segue destination="zIW-za-xNa" kind="show" identifier="EditItemSegue" id="pMF-6Y-Xlb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RO2-Sr-HVK" id="5H2-4L-o0C"/>
+                                    <outlet property="delegate" destination="RO2-Sr-HVK" id="n2g-77-prt"/>
+                                    <outlet property="emptyDataSetDelegate" destination="RO2-Sr-HVK" id="rjJ-Y2-FqK"/>
+                                    <outlet property="emptyDataSetSource" destination="RO2-Sr-HVK" id="d4T-3g-aZt"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-QF-rth">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Little To Do App" id="Zs2-Jg-zJm">
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="NkW-LZ-WiF">
-                                            <connections>
-                                                <action selector="addToDoItem:" destination="RO2-Sr-HVK" id="obU-qH-Jsp"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
-                                <rect key="frame" x="6" y="153" width="600" height="106"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
+                                <rect key="frame" x="0.0" y="153" width="602" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="kLn-q4-Zfe"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you need to do?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you need to do?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
                                 <rect key="frame" x="16" y="101" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Fc-05-6Ut">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Little To Do App" id="BId-Up-rXu">
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
-                                            <connections>
-                                                <action selector="addToDoItem:" destination="RO2-Sr-HVK" id="TEa-2q-r1r"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.01176470588" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="leading" secondItem="TQj-QF-rth" secondAttribute="leading" id="1yF-zZ-v6X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TQj-QF-rth" secondAttribute="trailing" constant="-16" id="7QG-tV-p7J"/>
-                            <constraint firstItem="TQj-QF-rth" firstAttribute="trailing" secondItem="cF2-3c-eAZ" secondAttribute="trailing" id="EfW-aj-f2Z"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="top" secondItem="TQj-QF-rth" secondAttribute="top" id="IBJ-wD-zC9"/>
+                            <constraint firstItem="cF2-3c-eAZ" firstAttribute="leading" secondItem="PVg-lh-fvX" secondAttribute="leading" id="0zP-ao-4en"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="2yU-uv-HzB"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="HVk-EF-HBB"/>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="IKd-R1-iNH"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="TQj-QF-rth" secondAttribute="leading" id="Lz1-uU-2PU"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="N1K-D7-lb2"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="cF2-3c-eAZ" secondAttribute="bottom" id="Obp-4R-fz0"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="TQj-QF-rth" secondAttribute="centerX" id="Pmc-ug-OlE"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="RQr-tA-g8v"/>
-                            <constraint firstItem="TQj-QF-rth" firstAttribute="top" secondItem="wZH-8B-G0z" secondAttribute="bottom" id="SIs-zA-zV3"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="top" secondItem="TQj-QF-rth" secondAttribute="bottom" constant="37" id="aoO-7g-3Dt"/>
-                            <constraint firstItem="TQj-QF-rth" firstAttribute="leading" secondItem="cF2-3c-eAZ" secondAttribute="leading" id="btJ-C2-QWx"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="22" id="UoD-tw-9Ec"/>
                             <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="cr5-aE-mZE"/>
-                            <constraint firstItem="6Fc-05-6Ut" firstAttribute="trailing" secondItem="TQj-QF-rth" secondAttribute="trailing" id="hpg-5P-efh"/>
-                            <constraint firstItem="TQj-QF-rth" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="rVb-d7-r1N"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="trailing" secondItem="TQj-QF-rth" secondAttribute="trailing" id="ugm-Ur-EOt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
+                            <connections>
+                                <action selector="addItem:" destination="RO2-Sr-HVK" id="pKV-hZ-g57"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="cF2-3c-eAZ" id="wCC-jf-08c"/>
-                        <outlet property="toDoItem" destination="tjF-ML-1Ba" id="o20-Pu-Hgy"/>
+                        <outlet property="itemTextField" destination="tjF-ML-1Ba" id="JVo-Ca-x3Z"/>
+                        <outlet property="tableView" destination="cF2-3c-eAZ" id="5yv-u9-Zpd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcc-WW-ExB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="289"/>
+            <point key="canvasLocation" x="632" y="327"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Edit Item-->
         <scene sceneID="vFr-bP-g8P">
             <objects>
-                <viewController id="zIW-za-xNa" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController id="zIW-za-xNa" customClass="EditItem" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nMN-Mb-KxJ"/>
                         <viewControllerLayoutGuide type="bottom" id="jnK-bl-8Mt"/>
@@ -118,24 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bg-BK-66T">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem id="W2c-dH-c6V">
-                                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="8PB-Ae-Zi2">
-                                            <connections>
-                                                <segue destination="IPh-0w-ELK" kind="unwind" identifier="goBack" unwindAction="unwindFromDetailViewController:" id="2bn-DN-CpN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Update" id="Bzq-im-MsS">
-                                            <connections>
-                                                <action selector="updateToDoItem:" destination="zIW-za-xNa" id="jB6-Bu-hYf"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-IB-h5G">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-IB-h5G">
                                 <rect key="frame" x="16" y="285" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -144,21 +104,53 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="6rb-hP-Whw"/>
-                            <constraint firstItem="8bg-BK-66T" firstAttribute="top" secondItem="bYr-Zb-U9f" secondAttribute="top" id="8JB-u5-5sM"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="IiV-Hz-mjd"/>
-                            <constraint firstItem="8bg-BK-66T" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="N8b-cL-IZB"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="centerY" secondItem="bYr-Zb-U9f" secondAttribute="centerY" id="Sh1-3x-OKb"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerX" secondItem="8bg-BK-66T" secondAttribute="centerX" id="kZ0-o1-6Ob"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="0yt-kv-vKh"/>
+                        <barButtonItem title="Item" id="InG-uz-adG"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Edit Item" id="3Z4-V5-S97">
+                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="4gx-Nm-fAt">
+                            <connections>
+                                <segue destination="IPh-0w-ELK" kind="unwind" unwindAction="unwindToItemsViewController:" id="wB8-7w-cmv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cO6-tP-h5D">
+                            <connections>
+                                <action selector="save:" destination="zIW-za-xNa" id="evI-Cu-UdQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="toDoItem" destination="iUs-IB-h5G" id="sRz-Ea-H6h"/>
+                        <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="IPh-0w-ELK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="606" y="289"/>
+            <point key="canvasLocation" x="1420" y="327"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L0d-Jl-Tcr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cGz-Ar-5Yv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ub7-L6-Z7D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RO2-Sr-HVK" kind="relationship" relationship="rootViewController" id="82K-gw-J1J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrU-km-x7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="327"/>
         </scene>
     </scenes>
     <resources>
