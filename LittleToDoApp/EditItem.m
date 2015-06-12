@@ -12,13 +12,12 @@
 
 @interface EditItem ()
 
+@property (strong, nonatomic) IBOutlet UITextField *editItemField;
+@property (nonatomic, strong) NSString *toDoItemName;
+
 @end
 
 @implementation EditItem
-
-@synthesize editItemField;
-@synthesize toDoItemName;
-
 
 
 - (void)viewDidLoad {
@@ -27,7 +26,7 @@
 
     //editItemField.text = toDoItemName;
     //self.editItemField.text = self.toDoItemName;
-    [self.managedObjectContext setValue:editItemField forKey:@"itemname"];
+    [self.managedObjectContext setValue:self.editItemField forKey:@"itemname"];
 }
 
 

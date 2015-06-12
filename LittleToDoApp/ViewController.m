@@ -250,7 +250,6 @@
         Item *item = [[self fetchedResultsController]objectAtIndexPath:indexPath];
         EditItem *destination = (EditItem *)segue.destinationViewController;
         destination.managedObjectContext=self.managedObjectContext;
-        destination.toDoItemName = item;
     }
 }
 
