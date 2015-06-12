@@ -6,7 +6,7 @@ Its just a little app that records to-do items.
 
 ### Installation
 
-Clone this repo, open in Xcode 4, run it
+Clone this repo, open in Xcode 6, run it
 
 ### Usage
 
@@ -29,6 +29,8 @@ Submit a pull request :D
 * Changed row height to 30
 * Implemented storyboard into project
 * Items can be added, deleted, and updated
+* Moved application to use SQLite
+* Moved application to use Core Data
 
 ### License
 
