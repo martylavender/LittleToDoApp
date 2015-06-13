@@ -12,5 +12,6 @@
 @interface ViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 
+- (IBAction)ShareItem:(id)sender;
 
 @end

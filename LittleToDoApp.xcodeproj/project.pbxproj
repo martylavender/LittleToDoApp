@@ -26,7 +26,6 @@
 		4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */; };
 		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
-		4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
@@ -69,8 +68,8 @@
 		4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4C61F0801B2B9ACC009F940B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -121,6 +120,7 @@
 		44BD97B01B0BE0A400AFD5FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C61F0801B2B9ACC009F940B /* QuartzCore.framework */,
 				4C018D4B1B2A4986009B0042 /* CoreData.framework */,
 				4C80EF751B20163200B26CFF /* libsqlite3.dylib */,
 				44BD97B11B0BE0A400AFD5FA /* UIKit.framework */,
@@ -133,6 +133,7 @@
 		44BD97B71B0BE0A400AFD5FA /* LittleToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C61F07D1B2B9A11009F940B /* Preview NIBs */,
 				4C18AAFE1B1E22DD00642AAB /* Empty Table View */,
 				44BD97C01B0BE0A400AFD5FA /* AppDelegate.h */,
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
@@ -145,7 +146,6 @@
 				4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */,
 				44BD97B81B0BE0A400AFD5FA /* Supporting Files */,
 				4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */,
-				4C4EBD701B0D0218006D3B9C /* Launch Screen.xib */,
 				4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */,
 			);
 			path = LittleToDoApp;
@@ -189,6 +189,13 @@
 				4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */,
 			);
 			name = "Empty Table View";
+			sourceTree = "<group>";
+		};
+		4C61F07D1B2B9A11009F940B /* Preview NIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Preview NIBs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +280,6 @@
 				44BD97C61B0BE0A400AFD5FA /* Default@2x.png in Resources */,
 				44BD97C81B0BE0A400AFD5FA /* Default-568h@2x.png in Resources */,
 				4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */,
-				4C4EBD711B0D0218006D3B9C /* Launch Screen.xib in Resources */,
 				4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -67,13 +67,20 @@
                             <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="dBo-wW-cdy">
+                            <connections>
+                                <action selector="ShareItem:" destination="RO2-Sr-HVK" id="UGj-nn-kqj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
                             <connections>
                                 <action selector="addItem:" destination="RO2-Sr-HVK" id="pKV-hZ-g57"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="itemTextField" destination="tjF-ML-1Ba" id="JVo-Ca-x3Z"/>
                         <outlet property="tableView" destination="cF2-3c-eAZ" id="5yv-u9-Zpd"/>
