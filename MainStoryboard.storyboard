@@ -112,9 +112,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-wB-LgL">
                                 <rect key="frame" x="0.0" y="256" width="600" height="344"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="344" id="GdA-sK-w4P"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" id="joW-YS-3Z0">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -130,9 +127,6 @@
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a new item to your list" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-Xy-3Ts">
                                 <rect key="frame" x="16" y="161" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="568" id="RAo-Cz-sHQ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -148,18 +142,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="6rb-hP-Whw"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="IiV-Hz-mjd"/>
-                            <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="iUs-IB-h5G" secondAttribute="centerX" id="Isc-1D-7Qm"/>
-                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="JI2-AE-D0m"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerY" secondItem="bYr-Zb-U9f" secondAttribute="centerY" constant="-181" id="Sh1-3x-OKb"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="edd-eb-SBj"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="hqu-ea-1gY"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="oYP-bE-0hP"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="iUs-IB-h5G" secondAttribute="centerX" id="sJt-eZ-8gA"/>
-                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="uKI-tC-e8B"/>
-                            <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="YOM-Xy-3Ts" secondAttribute="centerX" id="xR5-Sy-cat"/>
-                            <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="yvM-ch-pG4"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="8FD-Ly-uc1"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="trailing" secondItem="iUs-IB-h5G" secondAttribute="trailing" id="AVT-tP-ZZD"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="GhZ-Z5-br8"/>
+                            <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="YOM-Xy-3Ts" secondAttribute="centerX" id="LGf-wL-faR"/>
+                            <constraint firstAttribute="trailing" secondItem="xqN-wB-LgL" secondAttribute="trailing" id="LRe-cI-lhm"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="YOM-Xy-3Ts" secondAttribute="leading" id="aYS-i3-k7u"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="p1K-gZ-Ocz"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="uDD-9F-ckq"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="w6y-b7-ol3"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="40" id="wkP-wP-23h"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="top" secondItem="iUs-IB-h5G" secondAttribute="bottom" constant="27" id="yJh-62-Ufq"/>
+                            <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="zJ5-yJ-239"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -178,6 +172,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
+                        <outlet property="itemTableList" destination="xqN-wB-LgL" id="VvF-W4-Rdj"/>
                         <outlet property="listItemField" destination="YOM-Xy-3Ts" id="BBc-Ag-RhC"/>
                     </connections>
                 </viewController>

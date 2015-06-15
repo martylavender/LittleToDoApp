@@ -203,8 +203,8 @@
 
 -(void) showErrorAlert
 {
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
-                                                         message:@"You need to enter some text" delegate:nil
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"It seems you forgot something"
+                                                         message:@"You need to enter an list name" delegate:nil
                                                cancelButtonTitle:@"Let me try again"
                                                otherButtonTitles:nil, nil];
     [ErrorAlert show];
@@ -226,7 +226,7 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"Type in a new to do item \n and tap the save button to get started";
+    NSString *text = @"Type the name of a new list \n and tap the save button to get started";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -277,11 +277,12 @@
     NSArray *results    = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     NSMutableArray *itemNames = [results valueForKey:@"itemName"];
     NSString *names = [itemNames componentsJoinedByString:@" \n"];
-    NSLog(@"%@",names);
+    NSLog(@"\nThis is your list \n%@",names);
     
     NSArray *objectsToShare = @[names];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    [activityVC setValue:@"Check out this cool todo list I made!" forKey:@"subject"];
     
     NSArray *excludeActivities = @[UIActivityTypeAirDrop,
                                    UIActivityTypePrint,

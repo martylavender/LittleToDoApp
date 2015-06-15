@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *listItemField;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) IBOutlet UITableView *itemTableList;
 
 @end
 
@@ -28,7 +29,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     self.editItemField.text = self.toDoItem.itemName;
+    //self.itemTableList = self.toDoList.listName;
 
+}
+
+- (NSManagedObjectContext *) managedObjectContext {
+    return [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
 #pragma mark - UITableView Data Source
@@ -78,17 +84,6 @@
         // Update existing device
         self.toDoItem.itemName = self.editItemField.text;
         
-    } else {
-        
-        NSManagedObjectContext *context = self.managedObjectContext;
-        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newItem.itemName = self.editItemField.text;
-        self.editItemField.text = @"";
-        NSError *error;
-        [context save:&error];
-        
-        [self.editItemField resignFirstResponder];
-
     }
     
     NSError *error = nil;
@@ -114,6 +109,11 @@
         self.listItemField.text = @"";
         NSError *error;
         [context save:&error];
+        //NSLog(@"Saving new listItem");
+        
+        if (![context save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
         
         [self.listItemField resignFirstResponder];
     }
@@ -123,8 +123,8 @@
 
 -(void) showErrorAlert
 {
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
-                                                         message:@"You need to enter some text" delegate:nil
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
+                                                         message:@"You need to enter a list item" delegate:nil
                                                cancelButtonTitle:@"Let me try again"
                                                otherButtonTitles:nil, nil];
     [ErrorAlert show];
