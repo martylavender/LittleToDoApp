@@ -4,12 +4,12 @@
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
     </entity>
-    <entity name="List" syncable="YES">
+    <entity name="List" representedClassName="List" syncable="YES">
         <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="List" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Item" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="List" positionX="0" positionY="0" width="128" height="73"/>
     </elements>
 </model>
