@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];    
     self.editItemField.text = self.toDoItem.itemName;
+<<<<<<< HEAD
 }
 
 #pragma mark - UITableView Data Source
@@ -51,6 +52,8 @@
     }
     
     [self configureCell:cell atIndexPath:indexPath];
+=======
+>>>>>>> origin/addingNewTextView
     
     return cell;
 }
@@ -76,6 +79,20 @@
     if (self.editItemField) {
         // Update existing device
         self.toDoItem.itemName = self.editItemField.text;
+<<<<<<< HEAD
+=======
+        
+    } else {
+        
+        NSManagedObjectContext *context = self.managedObjectContext;
+        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+        newList.listName = self.editToDoListField.text;
+        self.editToDoListField.text = @"";
+        NSError *error;
+        [context save:&error];
+        
+        [self.editToDoListField resignFirstResponder];
+>>>>>>> origin/addingNewTextView
     }
     
     NSError *error = nil;
