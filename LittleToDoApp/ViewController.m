@@ -261,4 +261,40 @@
     return [UIColor whiteColor];
 }
 
+//share sheet
+
+- (IBAction)ShareItem:(id)sender {
+    
+    //NSString *textToShare = @"This is just some random text I put here";
+    //NSURL *myWebsite = [NSURL URLWithString:@"http://www.martylavender.com/"];
+    
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    fetchRequest.resultType = NSDictionaryResultType;
+    
+    NSError *error      = nil;
+        
+    NSArray *results    = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSMutableArray *itemNames = [results valueForKey:@"itemname"];
+    NSString *names = [itemNames componentsJoinedByString:@" \n"];
+    NSLog(@"%@",names);
+    
+    NSArray *objectsToShare = @[names];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypePostToTwitter,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 @end

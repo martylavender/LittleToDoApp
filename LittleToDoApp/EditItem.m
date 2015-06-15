@@ -9,18 +9,32 @@
 #import "EditItem.h"
 #import "AppDelegate.h"
 #import "Item.h"
+#import "List.h"
 
-@interface EditItem ()
+@class ViewController;
+
+@interface EditItem () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
+@property (strong, nonatomic) IBOutlet UITextView *editToDoListField;
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
+
 
 @implementation EditItem
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     self.editItemField.text = self.toDoItem.itemname;
+    
+    //i should edit this later to make the color match the textfield
+    [_editToDoListField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [_editToDoListField.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+    [_editToDoListField.layer setBorderWidth: 1.0];
+    [_editToDoListField.layer setCornerRadius: 8.0f];
+    [_editToDoListField.layer setMasksToBounds:YES];
 }
 
 - (IBAction)save:(id)sender {
@@ -29,6 +43,17 @@
     if (self.editItemField) {
         // Update existing device
         self.toDoItem.itemname = self.editItemField.text;
+        
+    } else {
+        
+        NSManagedObjectContext *context = self.managedObjectContext;
+        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+        newList.todolist = self.editToDoListField.text;
+        self.editToDoListField.text = @"";
+        NSError *error;
+        [context save:&error];
+        
+        [self.editToDoListField resignFirstResponder];
     }
     
     NSError *error = nil;
