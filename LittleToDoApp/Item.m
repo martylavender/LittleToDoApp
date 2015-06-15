@@ -11,7 +11,7 @@
 
 @implementation Item
 
-@dynamic itemname;
+@dynamic itemName;
 
 
 @end

@@ -41,7 +41,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemname" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
@@ -115,7 +115,7 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.itemname;
+    cell.textLabel.text = item.itemName;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -190,7 +190,7 @@
         
         NSManagedObjectContext *context = self.managedObjectContext;
         Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newItem.itemname = self.itemTextField.text;
+        newItem.itemName = self.itemTextField.text;
         self.itemTextField.text = @"";
         NSError *error;
         [context save:&error];
@@ -275,7 +275,7 @@
     NSError *error      = nil;
         
     NSArray *results    = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    NSMutableArray *itemNames = [results valueForKey:@"itemname"];
+    NSMutableArray *itemNames = [results valueForKey:@"itemName"];
     NSString *names = [itemNames componentsJoinedByString:@" \n"];
     NSLog(@"%@",names);
     
