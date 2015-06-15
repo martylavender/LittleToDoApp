@@ -25,6 +25,7 @@
 		4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C018D4B1B2A4986009B0042 /* CoreData.framework */; };
 		4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */; };
 		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
+		4C4516581B2E07AB007851CF /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4516571B2E07AB007851CF /* List.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
@@ -67,6 +68,8 @@
 		4C018D501B2A49FE009B0042 /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 		4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		4C4516561B2E07AB007851CF /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		4C4516571B2E07AB007851CF /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4C61F0801B2B9ACC009F940B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -139,6 +142,8 @@
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
 				4C018D451B2A47DE009B0042 /* Item.h */,
 				4C018D461B2A47DE009B0042 /* Item.m */,
+				4C4516561B2E07AB007851CF /* List.h */,
+				4C4516571B2E07AB007851CF /* List.m */,
 				44BD97C91B0BE0A400AFD5FA /* ViewController.h */,
 				44BD97CA1B0BE0A400AFD5FA /* ViewController.m */,
 				4C018D481B2A486A009B0042 /* EditItem.h */,
@@ -244,7 +249,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0630;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Marty Lavender";
 				TargetAttributes = {
 					44BD97AD1B0BE0A400AFD5FA = {
@@ -320,6 +325,7 @@
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
+				4C4516581B2E07AB007851CF /* List.m in Sources */,
 				4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
 			);
@@ -376,6 +382,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -429,6 +436,7 @@
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoApp/LittleToDoApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lavender.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -447,6 +455,7 @@
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoApp/LittleToDoApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lavender.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -467,6 +476,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoAppTests/LittleToDoAppTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Lavender.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -485,6 +495,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LittleToDoApp/LittleToDoApp-Prefix.pch";
 				INFOPLIST_FILE = "LittleToDoAppTests/LittleToDoAppTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Lavender.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

@@ -9,10 +9,12 @@
 #import "ViewController.h"
 
 @class Item;
+@class List;
 
 @interface EditItem : UIViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Item *toDoItem;
+@property (nonatomic, strong) List *toDoList;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  Item.h
+//  List.h
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/14/15.
@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@interface List : NSManagedObject
 
-@interface Item : NSManagedObject
-
-@property (nonatomic, retain) NSString * itemname;
-
+@property (nonatomic, retain) NSString * todolist;
 
 @end
