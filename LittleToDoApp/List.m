@@ -10,6 +10,6 @@
 
 @implementation List
 
-@dynamic todolist;
+@dynamic listName;
 
 @end

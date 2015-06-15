@@ -16,7 +16,7 @@
 @interface EditItem () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
-@property (strong, nonatomic) IBOutlet UITextView *editToDoListField;
+@property (strong, nonatomic) IBOutlet UITextField *listItemField;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
@@ -27,33 +27,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    self.editItemField.text = self.toDoItem.itemname;
-    
-    //i should edit this later to make the color match the textfield
-    [_editToDoListField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
-    [_editToDoListField.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
-    [_editToDoListField.layer setBorderWidth: 1.0];
-    [_editToDoListField.layer setCornerRadius: 8.0f];
-    [_editToDoListField.layer setMasksToBounds:YES];
+    self.editItemField.text = self.toDoItem.itemName;
 }
+
+#pragma mark - UITableView Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableview {
+    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"ListCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.layoutMargins = UIEdgeInsetsZero;
+    }
+    
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:managedObject];
+        [self.managedObjectContext save:nil];
+        tableView.layoutMargins = UIEdgeInsetsZero;
+    }
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = list.listName;
+}
+
 
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
     if (self.editItemField) {
         // Update existing device
-        self.toDoItem.itemname = self.editItemField.text;
-        
-    } else {
-        
-        NSManagedObjectContext *context = self.managedObjectContext;
-        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newList.todolist = self.editToDoListField.text;
-        self.editToDoListField.text = @"";
-        NSError *error;
-        [context save:&error];
-        
-        [self.editToDoListField resignFirstResponder];
+        self.toDoItem.itemName = self.editItemField.text;
     }
     
     NSError *error = nil;
@@ -63,6 +85,36 @@
     }
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)saveListItem:(id)sender {
+    
+    if(self.listItemField == nil || [self.listItemField.text isEqualToString:@""])
+    {
+        [self showErrorAlert];
+    }
+    else {
+        
+        NSManagedObjectContext *context = self.managedObjectContext;
+        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
+        newList.listName = self.listItemField.text;
+        self.listItemField.text = @"";
+        NSError *error;
+        [context save:&error];
+        
+        [self.listItemField resignFirstResponder];
+    }
+}
+
+#pragma mark - Helpers
+
+-(void) showErrorAlert
+{
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
+                                                         message:@"You need to enter some text" delegate:nil
+                                               cancelButtonTitle:@"Let me try again"
+                                               otherButtonTitles:nil, nil];
+    [ErrorAlert show];
 }
 
 @end
