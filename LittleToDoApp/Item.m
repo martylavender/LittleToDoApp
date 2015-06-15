@@ -13,10 +13,7 @@
 @implementation Item
 
 @dynamic itemName;
-<<<<<<< HEAD
 
-=======
 @dynamic list;
->>>>>>> origin/addingNewTextView
 
 @end

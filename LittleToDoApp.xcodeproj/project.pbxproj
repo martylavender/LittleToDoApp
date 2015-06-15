@@ -22,11 +22,11 @@
 		44BD97E01B0BE0A400AFD5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */; };
 		4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D491B2A486A009B0042 /* EditItem.m */; };
 		4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C018D4B1B2A4986009B0042 /* CoreData.framework */; };
-		4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */; };
 		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
+		4CBBFADC1B2F553E009134D0 /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */; };
 		9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2B1B2E6C9B00A2F063 /* List.m */; };
 		9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2E1B2E6C9C00A2F063 /* Item.m */; };
 /* End PBXBuildFile section */
@@ -138,7 +138,10 @@
 			children = (
 				4C61F07D1B2B9A11009F940B /* Preview NIBs */,
 				4C18AAFE1B1E22DD00642AAB /* Empty Table View */,
-				9CBBAE301B2E6CC400A2F063 /* Model */,
+				9CBBAE2D1B2E6C9C00A2F063 /* Item.h */,
+				9CBBAE2E1B2E6C9C00A2F063 /* Item.m */,
+				9CBBAE2A1B2E6C9B00A2F063 /* List.h */,
+				9CBBAE2B1B2E6C9B00A2F063 /* List.m */,
 				44BD97C01B0BE0A400AFD5FA /* AppDelegate.h */,
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
 				44BD97C91B0BE0A400AFD5FA /* ViewController.h */,
@@ -148,6 +151,7 @@
 				4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */,
 				44BD97B81B0BE0A400AFD5FA /* Supporting Files */,
 				4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */,
+				4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */,
 			);
 			path = LittleToDoApp;
 			sourceTree = "<group>";
@@ -197,18 +201,6 @@
 			children = (
 			);
 			name = "Preview NIBs";
-			sourceTree = "<group>";
-		};
-		9CBBAE301B2E6CC400A2F063 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9CBBAE2D1B2E6C9C00A2F063 /* Item.h */,
-				9CBBAE2E1B2E6C9C00A2F063 /* Item.m */,
-				9CBBAE2A1B2E6C9B00A2F063 /* List.h */,
-				9CBBAE2B1B2E6C9B00A2F063 /* List.m */,
-				4C018D4F1B2A49FE009B0042 /* LTAModel.xcdatamodeld */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,11 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBBFADC1B2F553E009134D0 /* LTAModel.xcdatamodeld in Sources */,
 				9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */,
 				44BD97BE1B0BE0A400AFD5FA /* main.m in Sources */,
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */,
-				4C018D511B2A49FE009B0042 /* LTAModel.xcdatamodeld in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ViewController.m in Sources */,
 				4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,

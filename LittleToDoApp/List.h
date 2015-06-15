@@ -14,8 +14,7 @@
 @interface List : NSManagedObject
 
 @property (nonatomic, retain) NSString * listName;
-<<<<<<< HEAD
-=======
+
 @property (nonatomic, retain) NSSet *items;
 @end
 
@@ -25,6 +24,5 @@
 - (void)removeItemsObject:(Item *)value;
 - (void)addItems:(NSSet *)values;
 - (void)removeItems:(NSSet *)values;
->>>>>>> origin/addingNewTextView
 
 @end

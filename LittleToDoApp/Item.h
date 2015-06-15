@@ -14,10 +14,8 @@
 @interface Item : NSManagedObject
 
 @property (nonatomic, retain) NSString * itemName;
-<<<<<<< HEAD
 
-=======
 @property (nonatomic, retain) List *list;
->>>>>>> origin/addingNewTextView
+
 
 @end
