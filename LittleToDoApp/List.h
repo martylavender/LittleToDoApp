@@ -11,6 +11,6 @@
 
 @interface List : NSManagedObject
 
-@property (nonatomic, retain) NSString * todolist;
+@property (nonatomic, retain) NSString * listName;
 
 @end

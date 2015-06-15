@@ -4,7 +4,7 @@
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="List" parentEntity="Item" syncable="YES">
-        <attribute name="todolist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="18" positionY="27" width="126" height="58"/>

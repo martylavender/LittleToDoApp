@@ -48,7 +48,7 @@
         
         NSManagedObjectContext *context = self.managedObjectContext;
         List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newList.todolist = self.editToDoListField.text;
+        newList.listName = self.editToDoListField.text;
         self.editToDoListField.text = @"";
         NSError *error;
         [context save:&error];
