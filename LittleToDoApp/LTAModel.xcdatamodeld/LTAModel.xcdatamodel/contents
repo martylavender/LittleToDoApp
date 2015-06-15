@@ -2,12 +2,14 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
     </entity>
-    <entity name="List" parentEntity="Item" syncable="YES">
+    <entity name="List" syncable="YES">
         <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="18" positionY="27" width="126" height="58"/>
-        <element name="List" positionX="216" positionY="27" width="128" height="58"/>
+        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="List" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
