@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    self.editItemField.text = self.toDoItem.itemname;
+    self.editItemField.text = self.toDoItem.itemName;
     
     //i should edit this later to make the color match the textfield
     [_editToDoListField.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
@@ -42,13 +42,13 @@
     
     if (self.editItemField) {
         // Update existing device
-        self.toDoItem.itemname = self.editItemField.text;
+        self.toDoItem.itemName = self.editItemField.text;
         
     } else {
         
         NSManagedObjectContext *context = self.managedObjectContext;
         List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newList.todolist = self.editToDoListField.text;
+        newList.listName = self.editToDoListField.text;
         self.editToDoListField.text = @"";
         NSError *error;
         [context save:&error];

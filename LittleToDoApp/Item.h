@@ -12,7 +12,7 @@
 
 @interface Item : NSManagedObject
 
-@property (nonatomic, retain) NSString * itemname;
+@property (nonatomic, retain) NSString * itemName;
 
 
 @end
