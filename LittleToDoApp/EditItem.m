@@ -106,6 +106,7 @@
         NSManagedObjectContext *context = self.managedObjectContext;
         List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
         newList.listName = self.listItemField.text;
+        //[newList setValue:[NSSet setWithObject:newList] forKey:@"lists"];
         self.listItemField.text = @"";
         NSError *error;
         [context save:&error];
@@ -114,6 +115,7 @@
         if (![context save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
+        
         
         [self.listItemField resignFirstResponder];
     }

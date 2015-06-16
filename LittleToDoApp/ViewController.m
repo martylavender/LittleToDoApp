@@ -54,6 +54,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Error: %@", error);
@@ -92,18 +94,22 @@
     return [sectionInfo numberOfObjects];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"ItemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {

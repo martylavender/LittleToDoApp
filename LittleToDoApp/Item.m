@@ -16,4 +16,6 @@
 
 @dynamic list;
 
+@dynamic lists;
+
 @end

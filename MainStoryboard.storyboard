@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGz-Ar-5Yv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGz-Ar-5Yv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -123,6 +123,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="zIW-za-xNa" id="aDR-7h-4fl"/>
                                     <outlet property="delegate" destination="zIW-za-xNa" id="i1S-2m-act"/>
+                                    <outlet property="emptyDataSetDelegate" destination="zIW-za-xNa" id="NPx-Zb-32F"/>
+                                    <outlet property="emptyDataSetSource" destination="zIW-za-xNa" id="Ru6-Ym-Q9x"/>
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a new item to your list" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-Xy-3Ts">
@@ -144,13 +146,13 @@
                         <constraints>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="8FD-Ly-uc1"/>
                             <constraint firstItem="YOM-Xy-3Ts" firstAttribute="trailing" secondItem="iUs-IB-h5G" secondAttribute="trailing" id="AVT-tP-ZZD"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="GhZ-Z5-br8"/>
+                            <constraint firstAttribute="trailing" secondItem="xqN-wB-LgL" secondAttribute="trailing" id="Bzh-6a-DaX"/>
                             <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="YOM-Xy-3Ts" secondAttribute="centerX" id="LGf-wL-faR"/>
-                            <constraint firstAttribute="trailing" secondItem="xqN-wB-LgL" secondAttribute="trailing" id="LRe-cI-lhm"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="OP2-ph-wWI"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="YOM-Xy-3Ts" secondAttribute="leading" id="aYS-i3-k7u"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="p1K-gZ-Ocz"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="uDD-9F-ckq"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="w6y-b7-ol3"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="bhF-sb-u8s"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="e5q-gc-4fk"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="sc2-ss-9ih"/>
                             <constraint firstItem="iUs-IB-h5G" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="40" id="wkP-wP-23h"/>
                             <constraint firstItem="YOM-Xy-3Ts" firstAttribute="top" secondItem="iUs-IB-h5G" secondAttribute="bottom" constant="27" id="yJh-62-Ufq"/>
                             <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="zJ5-yJ-239"/>

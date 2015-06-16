@@ -17,5 +17,7 @@
 
 @property (nonatomic, retain) List *list;
 
+@property (nonatomic, retain) NSSet *lists;
+
 
 @end
