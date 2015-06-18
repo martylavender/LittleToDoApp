@@ -27,6 +27,8 @@
 		4C4EBD731B0E52A2006D3B9C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD721B0E52A2006D3B9C /* MainStoryboard.storyboard */; };
 		4C718EB31B2F7D1D00A3602B /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C718EB11B2F7D1D00A3602B /* LTAModel.xcdatamodeld */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
+		4CE2F3DC1B338BEC00148AC0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */; };
+		4CE2F3DD1B338BF600148AC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C61F0801B2B9ACC009F940B /* QuartzCore.framework */; };
 		9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2B1B2E6C9B00A2F063 /* List.m */; };
 		9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2E1B2E6C9C00A2F063 /* Item.m */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 		4C61F0801B2B9ACC009F940B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4C718EB21B2F7D1D00A3602B /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9CBBAE2A1B2E6C9B00A2F063 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		9CBBAE2B1B2E6C9B00A2F063 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		9CBBAE2D1B2E6C9C00A2F063 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE2F3DD1B338BF600148AC0 /* QuartzCore.framework in Frameworks */,
+				4CE2F3DC1B338BEC00148AC0 /* CoreImage.framework in Frameworks */,
 				4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */,
 				4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */,
 				44BD97B21B0BE0A400AFD5FA /* UIKit.framework in Frameworks */,
@@ -123,6 +128,7 @@
 		44BD97B01B0BE0A400AFD5FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */,
 				4C61F0801B2B9ACC009F940B /* QuartzCore.framework */,
 				4C018D4B1B2A4986009B0042 /* CoreData.framework */,
 				4C80EF751B20163200B26CFF /* libsqlite3.dylib */,

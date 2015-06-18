@@ -17,6 +17,8 @@
 @property (nonatomic, strong) Item *toDoItem;
 @property (nonatomic, strong) List *toDoList;
 
+@property (nonatomic, strong) NSMutableSet *listedItems;
+
 - (IBAction)saveListItem:(id)sender;
 
 @end

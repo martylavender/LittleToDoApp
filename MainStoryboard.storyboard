@@ -50,7 +50,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you need to do?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
-                                <rect key="frame" x="16" y="101" width="568" height="30"/>
+                                <rect key="frame" x="16" y="115" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
@@ -58,15 +58,15 @@
                         <color key="backgroundColor" red="0.01176470588" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="leading" secondItem="PVg-lh-fvX" secondAttribute="leading" id="0zP-ao-4en"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="2yU-uv-HzB"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="HVk-EF-HBB"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="8" symbolic="YES" id="3Z0-Hk-z3A"/>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="IKd-R1-iNH"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="KqX-20-pDZ"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="Lax-Yu-rmB"/>
                             <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="N1K-D7-lb2"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="cF2-3c-eAZ" secondAttribute="bottom" id="Obp-4R-fz0"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="RQr-tA-g8v"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="22" id="UoD-tw-9Ec"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="cr5-aE-mZE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="tin-v5-S0k"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
