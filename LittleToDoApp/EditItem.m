@@ -17,9 +17,11 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
 @property (strong, nonatomic) IBOutlet UITextField *listItemField;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) IBOutlet UITableView *itemTableList;
+
 
 @end
 
@@ -30,11 +32,34 @@
     [super viewDidLoad];    
     self.editItemField.text = self.toDoItem.itemName;
     //self.itemTableList = self.toDoList.listName;
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Error: %@", error);
+        abort();
+    }
 
 }
 
 - (NSManagedObjectContext *) managedObjectContext {
     return [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+}
+
+-(NSFetchedResultsController *) fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"listName" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
+    fetchRequest.sortDescriptors = sortDescriptors;
+    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    return _fetchedResultsController;
 }
 
 #pragma mark - UITableView Data Source
@@ -55,6 +80,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.layoutMargins = UIEdgeInsetsZero;
+
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -74,6 +100,11 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = list.listName;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    //We're finished updating the tableview's data.
+    [self.tableView endUpdates];
 }
 
 

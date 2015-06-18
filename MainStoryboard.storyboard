@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="342" id="Zij-Ip-v73"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="POx-dm-cbe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="71" id="POx-dm-cbe">
                                         <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="POx-dm-cbe" id="8CN-b0-AkD">
@@ -176,6 +176,7 @@
                         <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
                         <outlet property="itemTableList" destination="xqN-wB-LgL" id="VvF-W4-Rdj"/>
                         <outlet property="listItemField" destination="YOM-Xy-3Ts" id="BBc-Ag-RhC"/>
+                        <outlet property="tableView" destination="xqN-wB-LgL" id="t0M-WK-ugi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
