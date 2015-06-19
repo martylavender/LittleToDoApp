@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListViewController.h
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 5/19/15.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIScrollView+EmptyDataSet.h"
 
-@interface ViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface ListViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 
 - (IBAction)ShareItem:(id)sender;

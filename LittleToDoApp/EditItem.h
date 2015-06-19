@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
 @class Item;
 @class List;

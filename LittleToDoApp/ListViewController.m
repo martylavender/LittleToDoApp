@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ListViewController.m
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/9/15.
@@ -8,11 +8,11 @@
 
 #import "AppDelegate.h"
 #import "Item.h"
-#import "ViewController.h"
+#import "ListViewController.h"
 #import "EditItem.h"
 #import "UIScrollView+EmptyDataSet.h"
 
-@interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *itemTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation ViewController
+@implementation ListViewController
 
 #pragma mark - Properties
 

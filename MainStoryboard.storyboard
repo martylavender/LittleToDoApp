@@ -8,7 +8,7 @@
         <!--Little To Do App-->
         <scene sceneID="MSn-Ez-IbJ">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="RO2-Sr-HVK" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="RO2-Sr-HVK" customClass="ListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wZH-8B-G0z"/>
                         <viewControllerLayoutGuide type="bottom" id="Mlk-CU-6Q2"/>

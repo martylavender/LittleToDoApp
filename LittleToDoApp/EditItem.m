@@ -11,8 +11,6 @@
 #import "Item.h"
 #import "List.h"
 
-@class ViewController;
-
 @interface EditItem () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
