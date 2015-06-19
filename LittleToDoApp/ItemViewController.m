@@ -54,6 +54,9 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"list == %@", self.toDoList];
+    [fetchRequest setPredicate:predicate];
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
@@ -187,6 +190,7 @@
         NSManagedObjectContext *context = self.managedObjectContext;
         Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
         newItem.itemName = self.addItemNameField.text;
+        newItem.list = self.toDoList;
         self.addItemNameField.text = @"";
         NSError *error;
         [context save:&error];
