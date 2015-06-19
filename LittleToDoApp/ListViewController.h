@@ -12,6 +12,6 @@
 @interface ListViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 
-- (IBAction)ShareItem:(id)sender;
+- (IBAction)shareLists:(id)sender;
 
 @end

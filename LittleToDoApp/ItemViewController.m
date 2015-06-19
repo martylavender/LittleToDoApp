@@ -13,8 +13,8 @@
 
 @interface ItemViewController () <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *editItemField;
-@property (strong, nonatomic) IBOutlet UITextField *listItemField;
+@property (strong, nonatomic) IBOutlet UITextField *editListNameField;
+@property (strong, nonatomic) IBOutlet UITextField *addItemNameField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    self.editItemField.text = self.toDoItem.itemName;
+    self.editListNameField.text = self.toDoList.listName;
     //self.itemTableList = self.toDoList.listName;
     
     //self.listedItems = [[NSMutableSet alloc] init];
@@ -49,13 +49,12 @@
         return _fetchedResultsController;
     }
     
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-   
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"listName" ascending:YES];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
@@ -75,7 +74,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"ListCell";
+    static NSString *CellIdentifier = @"ItemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -155,18 +154,17 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = list.listName;
+    Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = item.itemName;
 }
 
 
 - (IBAction)save:(id)sender {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    if (self.editItemField) {
+    if (self.editListNameField) {
         // Update existing device
-        self.toDoItem.itemName = self.editItemField.text;
-        
+        self.toDoList.listName = self.editListNameField.text;
     }
     
     NSError *error = nil;
@@ -180,17 +178,16 @@
 
 - (IBAction)saveListItem:(id)sender {
     
-    if(self.listItemField == nil || [self.listItemField.text isEqualToString:@""])
+    if(self.addItemNameField == nil || [self.addItemNameField.text isEqualToString:@""])
     {
         [self showErrorAlert];
     }
     else {
         
         NSManagedObjectContext *context = self.managedObjectContext;
-        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
-        newList.listName = self.listItemField.text;
-        //[newList setValue:[NSSet setWithObject:newList] forKey:@"lists"];
-        self.listItemField.text = @"";
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+        newItem.itemName = self.addItemNameField.text;
+        self.addItemNameField.text = @"";
         NSError *error;
         [context save:&error];
         //NSLog(@"Saving new listItem");
@@ -200,7 +197,7 @@
         }
         
         
-        [self.listItemField resignFirstResponder];
+        [self.addItemNameField resignFirstResponder];
     }
 }
 
@@ -209,7 +206,7 @@
 -(void) showErrorAlert
 {
     UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
-                                                         message:@"You need to enter a list item" delegate:nil
+                                                         message:@"You need to enter an item" delegate:nil
                                                cancelButtonTitle:@"Let me try again"
                                                otherButtonTitles:nil, nil];
     [ErrorAlert show];

@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="342" id="Zij-Ip-v73"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="71" id="POx-dm-cbe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" rowHeight="71" id="POx-dm-cbe">
                                         <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="POx-dm-cbe" id="8CN-b0-AkD">
@@ -73,7 +73,7 @@
                     <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="dBo-wW-cdy">
                             <connections>
-                                <action selector="ShareItem:" destination="RO2-Sr-HVK" id="UGj-nn-kqj"/>
+                                <action selector="shareLists:" destination="RO2-Sr-HVK" id="vO4-U2-5fG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
@@ -84,7 +84,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="itemTextField" destination="tjF-ML-1Ba" id="JVo-Ca-x3Z"/>
+                        <outlet property="listTextField" destination="tjF-ML-1Ba" id="bsQ-dT-c6O"/>
                         <outlet property="tableView" destination="cF2-3c-eAZ" id="5yv-u9-Zpd"/>
                     </connections>
                 </viewController>
@@ -113,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="256" width="600" height="344"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" id="joW-YS-3Z0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="joW-YS-3Z0">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="joW-YS-3Z0" id="f0e-Pt-Ibw">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -173,9 +173,9 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
+                        <outlet property="addItemNameField" destination="YOM-Xy-3Ts" id="doa-ZJ-t0j"/>
+                        <outlet property="editListNameField" destination="iUs-IB-h5G" id="4H4-AL-jM4"/>
                         <outlet property="itemTableList" destination="xqN-wB-LgL" id="VvF-W4-Rdj"/>
-                        <outlet property="listItemField" destination="YOM-Xy-3Ts" id="BBc-Ag-RhC"/>
                         <outlet property="tableView" destination="xqN-wB-LgL" id="t0M-WK-ugi"/>
                     </connections>
                 </viewController>
