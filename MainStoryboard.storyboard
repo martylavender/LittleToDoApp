@@ -175,7 +175,6 @@
                     <connections>
                         <outlet property="addItemNameField" destination="YOM-Xy-3Ts" id="doa-ZJ-t0j"/>
                         <outlet property="editListNameField" destination="iUs-IB-h5G" id="4H4-AL-jM4"/>
-                        <outlet property="itemTableList" destination="xqN-wB-LgL" id="VvF-W4-Rdj"/>
                         <outlet property="tableView" destination="xqN-wB-LgL" id="t0M-WK-ugi"/>
                     </connections>
                 </viewController>

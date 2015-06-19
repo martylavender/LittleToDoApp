@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIScrollView+EmptyDataSet.h"
 
-@interface ListViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
-
-
-- (IBAction)shareLists:(id)sender;
+@interface ListViewController : UIViewController
 
 @end

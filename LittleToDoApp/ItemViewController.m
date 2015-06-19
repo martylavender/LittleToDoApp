@@ -7,7 +7,6 @@
 //
 
 #import "ItemViewController.h"
-#import "AppDelegate.h"
 #import "Item.h"
 #import "List.h"
 
@@ -18,31 +17,25 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) IBOutlet UITableView *itemTableList;
 
 @end
 
 @implementation ItemViewController
 
+#pragma mark - UIViewController lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];    
     self.editListNameField.text = self.toDoList.listName;
-    //self.itemTableList = self.toDoList.listName;
-    
-    //self.listedItems = [[NSMutableSet alloc] init];
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Error: %@", error);
         abort();
     }
-    
-    /*NSSet *Lists = self.listedItems;
-    for (Item *List in Lists) {
-        [listedItems addObject:List];
-    }*/
-
 }
+
+#pragma mark - Properties
 
 -(NSFetchedResultsController *) fetchedResultsController {
     if (_fetchedResultsController != nil) {
@@ -50,8 +43,8 @@
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"list == %@", self.toDoList];
@@ -60,8 +53,13 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
-    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                    managedObjectContext:self.managedObjectContext
+                                                                      sectionNameKeyPath:nil
+                                                                               cacheName:nil];
     _fetchedResultsController.delegate = self;
+    
     return _fetchedResultsController;
 }
 
@@ -89,6 +87,11 @@
     [self configureCell:cell atIndexPath:indexPath];
 
     return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = item.itemName;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -152,68 +155,47 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    //We're finished updating the tableview's data.
     [self.tableView endUpdates];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.itemName;
-}
-
+#pragma mark - Actions
 
 - (IBAction)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if (self.editListNameField) {
-        // Update existing device
+    if (self.editListNameField.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
+                                    message:@"You need to enter a list name"
+                                   delegate:nil
+                          cancelButtonTitle:@"Let me try again"
+                          otherButtonTitles:nil] show];
+    } else {
         self.toDoList.listName = self.editListNameField.text;
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveListItem:(id)sender {
-    
-    if(self.addItemNameField == nil || [self.addItemNameField.text isEqualToString:@""])
-    {
-        [self showErrorAlert];
-    }
-    else {
-        
-        NSManagedObjectContext *context = self.managedObjectContext;
-        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    if (self.addItemNameField.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
+                                    message:@"You need to enter an item"
+                                   delegate:nil
+                          cancelButtonTitle:@"Let me try again"
+                          otherButtonTitles:nil] show];
+    } else {
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
         newItem.itemName = self.addItemNameField.text;
         newItem.list = self.toDoList;
         self.addItemNameField.text = @"";
         NSError *error;
-        [context save:&error];
-        //NSLog(@"Saving new listItem");
-        
-        if (![context save:&error]) {
+        if (![self.managedObjectContext save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
         
-        
         [self.addItemNameField resignFirstResponder];
     }
-}
-
-#pragma mark - Helpers
-
--(void) showErrorAlert
-{
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
-                                                         message:@"You need to enter an item" delegate:nil
-                                               cancelButtonTitle:@"Let me try again"
-                                               otherButtonTitles:nil, nil];
-    [ErrorAlert show];
 }
 
 @end

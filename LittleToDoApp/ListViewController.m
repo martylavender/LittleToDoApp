@@ -12,7 +12,7 @@
 #import "ItemViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
-@interface ListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *listTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
