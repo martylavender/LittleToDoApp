@@ -14,10 +14,6 @@
 @interface Item : NSManagedObject
 
 @property (nonatomic, retain) NSString * itemName;
-
 @property (nonatomic, retain) List *list;
-
-@property (nonatomic, retain) NSSet *lists;
-
 
 @end

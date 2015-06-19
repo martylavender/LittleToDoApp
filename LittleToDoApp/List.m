@@ -9,11 +9,9 @@
 #import "List.h"
 #import "Item.h"
 
-
 @implementation List
 
 @dynamic listName;
 @dynamic items;
-
 
 @end

@@ -13,9 +13,9 @@
 
 @interface List : NSManagedObject
 
-@property (nonatomic, retain) NSString * listName;
-
+@property (nonatomic, retain) NSString *listName;
 @property (nonatomic, retain) NSSet *items;
+
 @end
 
 @interface List (CoreDataGeneratedAccessors)
