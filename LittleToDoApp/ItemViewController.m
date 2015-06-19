@@ -20,13 +20,9 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) IBOutlet UITableView *itemTableList;
 
-
 @end
 
-
 @implementation ItemViewController
-
-@synthesize listedItems;
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
@@ -46,10 +42,6 @@
         [listedItems addObject:List];
     }*/
 
-}
-
-- (NSManagedObjectContext *) managedObjectContext {
-    return [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
 -(NSFetchedResultsController *) fetchedResultsController {
