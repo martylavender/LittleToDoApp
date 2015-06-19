@@ -1,75 +1,65 @@
 //
-//  EditItem.m
+//  ItemViewController.m
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/10/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import "EditItem.h"
-#import "AppDelegate.h"
+#import "ItemViewController.h"
 #import "Item.h"
 #import "List.h"
 
-@class ViewController;
+@interface ItemViewController () <NSFetchedResultsControllerDelegate>
 
-@interface EditItem () <NSFetchedResultsControllerDelegate>
-
-@property (strong, nonatomic) IBOutlet UITextField *editItemField;
-@property (strong, nonatomic) IBOutlet UITextField *listItemField;
+@property (strong, nonatomic) IBOutlet UITextField *editListNameField;
+@property (strong, nonatomic) IBOutlet UITextField *addItemNameField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) IBOutlet UITableView *itemTableList;
-
 
 @end
 
+@implementation ItemViewController
 
-@implementation EditItem
-
-@synthesize listedItems;
+#pragma mark - UIViewController lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    self.editItemField.text = self.toDoItem.itemName;
-    //self.itemTableList = self.toDoList.listName;
-    
-    //self.listedItems = [[NSMutableSet alloc] init];
+    self.editListNameField.text = self.toDoList.listName;
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Error: %@", error);
         abort();
     }
-    
-    /*NSSet *Lists = self.listedItems;
-    for (Item *List in Lists) {
-        [listedItems addObject:List];
-    }*/
-
 }
 
-- (NSManagedObjectContext *) managedObjectContext {
-    return [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-}
+#pragma mark - Properties
 
 -(NSFetchedResultsController *) fetchedResultsController {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-   
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"listName" ascending:YES];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"list == %@", self.toDoList];
+    [fetchRequest setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
-    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                    managedObjectContext:self.managedObjectContext
+                                                                      sectionNameKeyPath:nil
+                                                                               cacheName:nil];
     _fetchedResultsController.delegate = self;
+    
     return _fetchedResultsController;
 }
 
@@ -85,7 +75,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"ListCell";
+    static NSString *CellIdentifier = @"ItemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -97,6 +87,11 @@
     [self configureCell:cell atIndexPath:indexPath];
 
     return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = item.itemName;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -160,69 +155,47 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    //We're finished updating the tableview's data.
     [self.tableView endUpdates];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = list.listName;
-}
-
+#pragma mark - Actions
 
 - (IBAction)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if (self.editItemField) {
-        // Update existing device
-        self.toDoItem.itemName = self.editItemField.text;
-        
+    if (self.editListNameField.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
+                                    message:@"You need to enter a list name"
+                                   delegate:nil
+                          cancelButtonTitle:@"Let me try again"
+                          otherButtonTitles:nil] show];
+    } else {
+        self.toDoList.listName = self.editListNameField.text;
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveListItem:(id)sender {
-    
-    if(self.listItemField == nil || [self.listItemField.text isEqualToString:@""])
-    {
-        [self showErrorAlert];
-    }
-    else {
-        
-        NSManagedObjectContext *context = self.managedObjectContext;
-        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
-        newList.listName = self.listItemField.text;
-        //[newList setValue:[NSSet setWithObject:newList] forKey:@"lists"];
-        self.listItemField.text = @"";
+    if (self.addItemNameField.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
+                                    message:@"You need to enter an item"
+                                   delegate:nil
+                          cancelButtonTitle:@"Let me try again"
+                          otherButtonTitles:nil] show];
+    } else {
+        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:self.managedObjectContext];
+        newItem.itemName = self.addItemNameField.text;
+        newItem.list = self.toDoList;
+        self.addItemNameField.text = @"";
         NSError *error;
-        [context save:&error];
-        //NSLog(@"Saving new listItem");
-        
-        if (![context save:&error]) {
+        if (![self.managedObjectContext save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
         
-        
-        [self.listItemField resignFirstResponder];
+        [self.addItemNameField resignFirstResponder];
     }
-}
-
-#pragma mark - Helpers
-
--(void) showErrorAlert
-{
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"Whoa nelly!!"
-                                                         message:@"You need to enter a list item" delegate:nil
-                                               cancelButtonTitle:@"Let me try again"
-                                               otherButtonTitles:nil, nil];
-    [ErrorAlert show];
 }
 
 @end
