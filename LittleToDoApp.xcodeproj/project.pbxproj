@@ -28,7 +28,6 @@
 		4C718EB31B2F7D1D00A3602B /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C718EB11B2F7D1D00A3602B /* LTAModel.xcdatamodeld */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
 		4CE2F3DC1B338BEC00148AC0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */; };
-		4CE2F3DD1B338BF600148AC0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C61F0801B2B9ACC009F940B /* QuartzCore.framework */; };
 		9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2B1B2E6C9B00A2F063 /* List.m */; };
 		9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2E1B2E6C9C00A2F063 /* Item.m */; };
 /* End PBXBuildFile section */
@@ -84,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE2F3DD1B338BF600148AC0 /* QuartzCore.framework in Frameworks */,
 				4CE2F3DC1B338BEC00148AC0 /* CoreImage.framework in Frameworks */,
 				4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */,
 				4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */,
@@ -452,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -471,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
