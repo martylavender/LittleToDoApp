@@ -1,5 +1,5 @@
 //
-//  EditItem.h
+//  ItemViewController.h
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/10/15.
@@ -11,7 +11,7 @@
 @class Item;
 @class List;
 
-@interface EditItem : UIViewController
+@interface ItemViewController : UIViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) Item *toDoItem;

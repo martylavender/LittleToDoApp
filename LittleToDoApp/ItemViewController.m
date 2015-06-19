@@ -1,17 +1,17 @@
 //
-//  EditItem.m
+//  ItemViewController.m
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/10/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import "EditItem.h"
+#import "ItemViewController.h"
 #import "AppDelegate.h"
 #import "Item.h"
 #import "List.h"
 
-@interface EditItem () <NSFetchedResultsControllerDelegate>
+@interface ItemViewController () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *editItemField;
 @property (strong, nonatomic) IBOutlet UITextField *listItemField;
@@ -24,7 +24,7 @@
 @end
 
 
-@implementation EditItem
+@implementation ItemViewController
 
 @synthesize listedItems;
 

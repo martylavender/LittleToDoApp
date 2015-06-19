@@ -20,7 +20,7 @@
 		44BD97D71B0BE0A400AFD5FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B11B0BE0A400AFD5FA /* UIKit.framework */; };
 		44BD97D81B0BE0A400AFD5FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BD97B31B0BE0A400AFD5FA /* Foundation.framework */; };
 		44BD97E01B0BE0A400AFD5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44BD97DE1B0BE0A400AFD5FA /* InfoPlist.strings */; };
-		4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D491B2A486A009B0042 /* EditItem.m */; };
+		4C018D4A1B2A486A009B0042 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C018D491B2A486A009B0042 /* ItemViewController.m */; };
 		4C018D4C1B2A4986009B0042 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C018D4B1B2A4986009B0042 /* CoreData.framework */; };
 		4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */; };
 		4C4EBD6F1B0D0180006D3B9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4EBD6E1B0D0180006D3B9C /* Media.xcassets */; };
@@ -62,8 +62,8 @@
 		44BD97D41B0BE0A400AFD5FA /* LittleToDoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleToDoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BD97DD1B0BE0A400AFD5FA /* LittleToDoAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LittleToDoAppTests-Info.plist"; sourceTree = "<group>"; };
 		44BD97DF1B0BE0A400AFD5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4C018D481B2A486A009B0042 /* EditItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditItem.h; sourceTree = "<group>"; };
-		4C018D491B2A486A009B0042 /* EditItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditItem.m; sourceTree = "<group>"; };
+		4C018D481B2A486A009B0042 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		4C018D491B2A486A009B0042 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		4C018D4B1B2A4986009B0042 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C18AAFF1B1E232500642AAB /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		4C18AB001B1E232500642AAB /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 			children = (
 				44BD97C91B0BE0A400AFD5FA /* ListViewController.h */,
 				44BD97CA1B0BE0A400AFD5FA /* ListViewController.m */,
-				4C018D481B2A486A009B0042 /* EditItem.h */,
-				4C018D491B2A486A009B0042 /* EditItem.m */,
+				4C018D481B2A486A009B0042 /* ItemViewController.h */,
+				4C018D491B2A486A009B0042 /* ItemViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
 				9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */,
 				44BD97CB1B0BE0A400AFD5FA /* ListViewController.m in Sources */,
-				4C018D4A1B2A486A009B0042 /* EditItem.m in Sources */,
+				4C018D4A1B2A486A009B0042 /* ItemViewController.m in Sources */,
 				4C18AB011B1E232500642AAB /* UIScrollView+EmptyDataSet.m in Sources */,
 				4C718EB31B2F7D1D00A3602B /* LTAModel.xcdatamodeld in Sources */,
 			);

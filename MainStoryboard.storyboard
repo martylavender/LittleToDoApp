@@ -32,7 +32,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="show" identifier="EditItemSegue" id="pMF-6Y-Xlb"/>
+                                            <segue destination="zIW-za-xNa" kind="show" identifier="ListViewControllerToItemViewControllerSegueIdentifier" id="pMF-6Y-Xlb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -95,7 +95,7 @@
         <!--Edit Item-->
         <scene sceneID="vFr-bP-g8P">
             <objects>
-                <viewController id="zIW-za-xNa" customClass="EditItem" sceneMemberID="viewController">
+                <viewController id="zIW-za-xNa" customClass="ItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nMN-Mb-KxJ"/>
                         <viewControllerLayoutGuide type="bottom" id="jnK-bl-8Mt"/>

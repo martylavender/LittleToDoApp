@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "Item.h"
 #import "ListViewController.h"
-#import "EditItem.h"
+#import "ItemViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
 @interface ListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -69,9 +69,9 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
+    if ([[segue identifier] isEqualToString:@"ListViewControllerToItemViewControllerSegueIdentifier"])
     {
-        EditItem *destination = (EditItem *)segue.destinationViewController;
+        ItemViewController *destination = (ItemViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Item *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         destination.managedObjectContext = self.managedObjectContext;
