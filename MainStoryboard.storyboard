@@ -8,7 +8,7 @@
         <!--Little To Do App-->
         <scene sceneID="MSn-Ez-IbJ">
             <objects>
-                <viewController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="RO2-Sr-HVK" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="RO2-Sr-HVK" customClass="ListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wZH-8B-G0z"/>
                         <viewControllerLayoutGuide type="bottom" id="Mlk-CU-6Q2"/>
@@ -24,13 +24,15 @@
                                     <constraint firstAttribute="height" constant="342" id="Zij-Ip-v73"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="POx-dm-cbe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" rowHeight="71" id="POx-dm-cbe">
+                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="POx-dm-cbe" id="8CN-b0-AkD">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-za-xNa" kind="show" identifier="EditItemSegue" id="pMF-6Y-Xlb"/>
+                                            <segue destination="zIW-za-xNa" kind="show" identifier="ListViewControllerToItemViewControllerSegueIdentifier" id="pMF-6Y-Xlb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -41,14 +43,14 @@
                                     <outlet property="emptyDataSetSource" destination="RO2-Sr-HVK" id="d4T-3g-aZt"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
                                 <rect key="frame" x="0.0" y="153" width="602" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="kLn-q4-Zfe"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you need to do?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
-                                <rect key="frame" x="16" y="101" width="568" height="30"/>
+                                <rect key="frame" x="16" y="115" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
@@ -56,26 +58,33 @@
                         <color key="backgroundColor" red="0.01176470588" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="leading" secondItem="PVg-lh-fvX" secondAttribute="leading" id="0zP-ao-4en"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="2yU-uv-HzB"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="HVk-EF-HBB"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="8" symbolic="YES" id="3Z0-Hk-z3A"/>
                             <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="IKd-R1-iNH"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="KqX-20-pDZ"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="Lax-Yu-rmB"/>
                             <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="N1K-D7-lb2"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="cF2-3c-eAZ" secondAttribute="bottom" id="Obp-4R-fz0"/>
                             <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="RQr-tA-g8v"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="22" id="UoD-tw-9Ec"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="cr5-aE-mZE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="tin-v5-S0k"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="dBo-wW-cdy">
+                            <connections>
+                                <action selector="shareLists:" destination="RO2-Sr-HVK" id="vO4-U2-5fG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
                             <connections>
                                 <action selector="addItem:" destination="RO2-Sr-HVK" id="pKV-hZ-g57"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="itemTextField" destination="tjF-ML-1Ba" id="JVo-Ca-x3Z"/>
+                        <outlet property="listTextField" destination="tjF-ML-1Ba" id="bsQ-dT-c6O"/>
                         <outlet property="tableView" destination="cF2-3c-eAZ" id="5yv-u9-Zpd"/>
                     </connections>
                 </viewController>
@@ -86,7 +95,7 @@
         <!--Edit Item-->
         <scene sceneID="vFr-bP-g8P">
             <objects>
-                <viewController id="zIW-za-xNa" customClass="EditItem" sceneMemberID="viewController">
+                <viewController id="zIW-za-xNa" customClass="ItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nMN-Mb-KxJ"/>
                         <viewControllerLayoutGuide type="bottom" id="jnK-bl-8Mt"/>
@@ -96,22 +105,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-IB-h5G">
-                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <rect key="frame" x="16" y="104" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-wB-LgL">
+                                <rect key="frame" x="0.0" y="256" width="600" height="344"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="joW-YS-3Z0">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="joW-YS-3Z0" id="f0e-Pt-Ibw">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zIW-za-xNa" id="aDR-7h-4fl"/>
+                                    <outlet property="delegate" destination="zIW-za-xNa" id="i1S-2m-act"/>
+                                    <outlet property="emptyDataSetDelegate" destination="zIW-za-xNa" id="NPx-Zb-32F"/>
+                                    <outlet property="emptyDataSetSource" destination="zIW-za-xNa" id="Ru6-Ym-Q9x"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a new item to your list" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-Xy-3Ts">
+                                <rect key="frame" x="16" y="161" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weC-Ax-VDU">
+                                <rect key="frame" x="251" y="199" width="98" height="30"/>
+                                <state key="normal" title="Save List Item">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveListItem:" destination="zIW-za-xNa" eventType="touchUpInside" id="PJO-Dj-7QO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="6rb-hP-Whw"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="bYr-Zb-U9f" secondAttribute="trailingMargin" id="IiV-Hz-mjd"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="centerY" secondItem="bYr-Zb-U9f" secondAttribute="centerY" id="Sh1-3x-OKb"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="8FD-Ly-uc1"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="trailing" secondItem="iUs-IB-h5G" secondAttribute="trailing" id="AVT-tP-ZZD"/>
+                            <constraint firstAttribute="trailing" secondItem="xqN-wB-LgL" secondAttribute="trailing" id="Bzh-6a-DaX"/>
+                            <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="YOM-Xy-3Ts" secondAttribute="centerX" id="LGf-wL-faR"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="OP2-ph-wWI"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="YOM-Xy-3Ts" secondAttribute="leading" id="aYS-i3-k7u"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="bhF-sb-u8s"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="e5q-gc-4fk"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="sc2-ss-9ih"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="40" id="wkP-wP-23h"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="top" secondItem="iUs-IB-h5G" secondAttribute="bottom" constant="27" id="yJh-62-Ufq"/>
+                            <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="zJ5-yJ-239"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="0yt-kv-vKh"/>
-                        <barButtonItem title="Item" id="InG-uz-adG"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Item" id="3Z4-V5-S97">
                         <barButtonItem key="leftBarButtonItem" title="Go Back" id="4gx-Nm-fAt">
                             <connections>
@@ -124,9 +171,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="editItemField" destination="iUs-IB-h5G" id="arx-ja-vQw"/>
+                        <outlet property="addItemNameField" destination="YOM-Xy-3Ts" id="doa-ZJ-t0j"/>
+                        <outlet property="editListNameField" destination="iUs-IB-h5G" id="4H4-AL-jM4"/>
+                        <outlet property="tableView" destination="xqN-wB-LgL" id="t0M-WK-ugi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5b-WN-jkR" userLabel="First Responder" sceneMemberID="firstResponder"/>

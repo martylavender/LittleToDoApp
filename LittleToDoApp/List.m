@@ -1,17 +1,17 @@
 //
-//  Item.m
+//  List.m
 //  LittleToDoApp
 //
 //  Created by Adam Gall on 6/14/15.
 //  Copyright (c) 2015 Marty Lavender. All rights reserved.
 //
 
-#import "Item.h"
 #import "List.h"
+#import "Item.h"
 
-@implementation Item
+@implementation List
 
-@dynamic itemName;
-@dynamic list;
+@dynamic listName;
+@dynamic items;
 
 @end

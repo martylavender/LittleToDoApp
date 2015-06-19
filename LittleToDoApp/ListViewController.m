@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ListViewController.m
 //  LittleToDoApp
 //
 //  Created by Marty Lavender on 6/9/15.
@@ -7,23 +7,23 @@
 //
 
 #import "AppDelegate.h"
-#import "Item.h"
-#import "ViewController.h"
-#import "EditItem.h"
+#import "List.h"
+#import "ListViewController.h"
+#import "ItemViewController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
-@interface ViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController () <NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *itemTextField;
+@property (strong, nonatomic) IBOutlet UITextField *listTextField;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) Item *toDoItem;
+@property (nonatomic, strong) List *toDoList;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation ViewController
+@implementation ListViewController
 
 #pragma mark - Properties
 
@@ -36,12 +36,12 @@
         return _fetchedResultsController;
     }
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemname" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"listName" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
     fetchRequest.sortDescriptors = sortDescriptors;
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
@@ -53,6 +53,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -67,18 +69,18 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"EditItemSegue"])
+    if ([[segue identifier] isEqualToString:@"ListViewControllerToItemViewControllerSegueIdentifier"])
     {
-        EditItem *destination = (EditItem *)segue.destinationViewController;
+        ItemViewController *destination = (ItemViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Item *item = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        List *list = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         destination.managedObjectContext = self.managedObjectContext;
-        destination.toDoItem = item;
+        destination.toDoList = list;
     }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.itemTextField resignFirstResponder];
+    [self.listTextField resignFirstResponder];
 }
 
 #pragma mark - UITableView Data Source
@@ -92,18 +94,23 @@
     return [sectionInfo numberOfObjects];
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"ItemCell";
+    static NSString *CellIdentifier = @"ListCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -114,8 +121,8 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Item *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.itemname;
+    List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = list.listName;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -182,20 +189,20 @@
 
 - (IBAction)addItem:(id)sender {
     
-    if(self.itemTextField == nil || [self.itemTextField.text isEqualToString:@""])
+    if(self.listTextField == nil || [self.listTextField.text isEqualToString:@""])
     {
         [self showErrorAlert];
     }
     else {
         
         NSManagedObjectContext *context = self.managedObjectContext;
-        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
-        newItem.itemname = self.itemTextField.text;
-        self.itemTextField.text = @"";
+        List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
+        newList.listName = self.listTextField.text;
+        self.listTextField.text = @"";
         NSError *error;
         [context save:&error];
 
-        [self.itemTextField resignFirstResponder];
+        [self.listTextField resignFirstResponder];
     }
 }
 
@@ -203,8 +210,8 @@
 
 -(void) showErrorAlert
 {
-    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
-                                                         message:@"You need to enter some text" delegate:nil
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@"It seems you forgot something"
+                                                         message:@"You need to enter an list name" delegate:nil
                                                cancelButtonTitle:@"Let me try again"
                                                otherButtonTitles:nil, nil];
     [ErrorAlert show];
@@ -226,7 +233,7 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"Type in a new to do item \n and tap the save button to get started";
+    NSString *text = @"Type the name of a new list \n and tap the save button to get started";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -259,6 +266,43 @@
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
     return [UIColor whiteColor];
+}
+
+//share sheet
+
+- (IBAction)shareLists:(id)sender {
+    
+    //NSString *textToShare = @"This is just some random text I put here";
+    //NSURL *myWebsite = [NSURL URLWithString:@"http://www.martylavender.com/"];
+    
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"List"];
+    fetchRequest.resultType = NSDictionaryResultType;
+    
+    NSError *error      = nil;
+        
+    NSArray *results    = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSMutableArray *listNames = [results valueForKey:@"listName"];
+    NSString *names = [listNames componentsJoinedByString:@" \n"];
+    NSLog(@"\nThese are your lists \n%@",names);
+    
+    NSArray *objectsToShare = @[names];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    [activityVC setValue:@"Check out these cool todo lists I made!" forKey:@"subject"];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypePostToTwitter,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 @end
