@@ -110,14 +110,17 @@
     return cell;
 }
 
-
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self.managedObjectContext deleteObject:managedObject];
         [self.managedObjectContext save:nil];
     }
+}
+
+- (UIEdgeInsets)layoutMargins
+{
+	return UIEdgeInsetsZero;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) List *toDoList;
 
+- (IBAction)shareLists:(id)sender;
+
 @end

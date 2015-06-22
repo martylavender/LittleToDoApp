@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "List.h"
 
+
 @interface ItemViewController () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *editListNameField;
@@ -34,6 +35,7 @@
         abort();
     }
 }
+
 
 #pragma mark - Properties
 
@@ -154,6 +156,7 @@
     }
 }
 
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
@@ -197,5 +200,43 @@
         [self.addItemNameField resignFirstResponder];
     }
 }
+
+//share sheet
+
+- (IBAction)shareLists:(id)sender {
+	
+	//NSString *textToShare = @"This is just some random text I put here";
+	//NSURL *myWebsite = [NSURL URLWithString:@"http://www.martylavender.com/"];
+	
+	
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+	fetchRequest.resultType = NSDictionaryResultType;
+	
+	NSError *error      = nil;
+	
+	NSArray *results    = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	NSMutableArray *listNames = [results valueForKey:@"itemName"];
+	NSString *names = [listNames componentsJoinedByString:@" \n"];
+	NSLog(@"\nThis is your list \n\n%@", names);
+	
+	NSArray *objectsToShare = @[names];
+	
+	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+	[activityVC setValue:@"Check out this cool todo list I made!" forKey:@"subject"];
+	
+	NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+								   UIActivityTypePrint,
+								   UIActivityTypePostToTwitter,
+								   UIActivityTypeAssignToContact,
+								   UIActivityTypeSaveToCameraRoll,
+								   UIActivityTypeAddToReadingList,
+								   UIActivityTypePostToFlickr,
+								   UIActivityTypePostToVimeo];
+	
+	activityVC.excludedActivityTypes = excludeActivities;
+	
+	[self presentViewController:activityVC animated:YES completion:nil];
+}
+
 
 @end

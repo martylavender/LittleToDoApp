@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-3c-eAZ">
-                                <rect key="frame" x="0.0" y="258" width="600" height="342"/>
+                                <rect key="frame" x="0.0" y="258" width="602" height="342"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="Zij-Ip-v73"/>
+                                    <constraint firstAttribute="height" constant="342" id="Wcg-4m-Zyt"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" rowHeight="71" id="POx-dm-cbe">
@@ -44,38 +44,33 @@
                                 </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle" translatesAutoresizingMaskIntoConstraints="NO" id="PVg-lh-fvX">
-                                <rect key="frame" x="0.0" y="153" width="602" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="kLn-q4-Zfe"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="217" width="602" height="42"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you need to do?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the name of your list?" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-ML-1Ba">
                                 <rect key="frame" x="16" y="115" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XeD-Yi-4hl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.01176470588" green="0.65490196079999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cF2-3c-eAZ" firstAttribute="leading" secondItem="PVg-lh-fvX" secondAttribute="leading" id="0zP-ao-4en"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="8" symbolic="YES" id="3Z0-Hk-z3A"/>
-                            <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="IKd-R1-iNH"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="centerX" secondItem="cF2-3c-eAZ" secondAttribute="centerX" id="KqX-20-pDZ"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="Lax-Yu-rmB"/>
-                            <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" constant="-16" id="N1K-D7-lb2"/>
-                            <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="cF2-3c-eAZ" secondAttribute="bottom" id="Obp-4R-fz0"/>
-                            <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="RQr-tA-g8v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PVg-lh-fvX" secondAttribute="trailing" constant="-18" id="jC3-CT-NdJ"/>
-                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="tin-v5-S0k"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="trailing" secondItem="sgH-ac-yK7" secondAttribute="trailingMargin" id="0gP-oN-NpI"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="cF2-3c-eAZ" secondAttribute="leading" id="A5K-Xm-dAE"/>
+                            <constraint firstItem="cF2-3c-eAZ" firstAttribute="bottom" secondItem="Mlk-CU-6Q2" secondAttribute="top" id="ADB-Zk-ms7"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leadingMargin" id="Dtq-ul-hDp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cF2-3c-eAZ" secondAttribute="trailing" constant="-18" id="EYO-EC-uCv"/>
+                            <constraint firstItem="tjF-ML-1Ba" firstAttribute="top" secondItem="wZH-8B-G0z" secondAttribute="bottom" constant="51" id="Y7U-bx-wFR"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="trailing" secondItem="cF2-3c-eAZ" secondAttribute="trailing" id="aMx-lR-iUm"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="leading" secondItem="sgH-ac-yK7" secondAttribute="leading" id="b3J-uD-omZ"/>
+                            <constraint firstItem="Mlk-CU-6Q2" firstAttribute="top" secondItem="PVg-lh-fvX" secondAttribute="bottom" constant="341" id="dLZ-dA-laQ"/>
+                            <constraint firstItem="PVg-lh-fvX" firstAttribute="top" secondItem="tjF-ML-1Ba" secondAttribute="bottom" constant="72" id="wzA-He-eS0"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Little To Do App" id="2Wk-ur-GnQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="dBo-wW-cdy">
-                            <connections>
-                                <action selector="shareLists:" destination="RO2-Sr-HVK" id="vO4-U2-5fG"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="hfO-c2-N3S">
                             <connections>
                                 <action selector="addItem:" destination="RO2-Sr-HVK" id="pKV-hZ-g57"/>
@@ -110,7 +105,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-wB-LgL">
-                                <rect key="frame" x="0.0" y="256" width="600" height="344"/>
+                                <rect key="frame" x="0.0" y="256" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="joW-YS-3Z0">
@@ -134,28 +129,41 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weC-Ax-VDU">
                                 <rect key="frame" x="251" y="199" width="98" height="30"/>
-                                <state key="normal" title="Save List Item">
+                                <state key="normal" title="Add New Item">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveListItem:" destination="zIW-za-xNa" eventType="touchUpInside" id="PJO-Dj-7QO"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsA-qo-U5B">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="cd7-SG-QJo">
+                                        <connections>
+                                            <action selector="shareLists:" destination="zIW-za-xNa" id="fSI-iK-2Rg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="8FD-Ly-uc1"/>
-                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="trailing" secondItem="iUs-IB-h5G" secondAttribute="trailing" id="AVT-tP-ZZD"/>
-                            <constraint firstAttribute="trailing" secondItem="xqN-wB-LgL" secondAttribute="trailing" id="Bzh-6a-DaX"/>
-                            <constraint firstItem="weC-Ax-VDU" firstAttribute="centerX" secondItem="YOM-Xy-3Ts" secondAttribute="centerX" id="LGf-wL-faR"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="OP2-ph-wWI"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="YOM-Xy-3Ts" secondAttribute="leading" id="aYS-i3-k7u"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="bhF-sb-u8s"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="e5q-gc-4fk"/>
-                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="sc2-ss-9ih"/>
-                            <constraint firstItem="iUs-IB-h5G" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="40" id="wkP-wP-23h"/>
-                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="top" secondItem="iUs-IB-h5G" secondAttribute="bottom" constant="27" id="yJh-62-Ufq"/>
-                            <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="zJ5-yJ-239"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="03D-W1-Y42"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="trailing" secondItem="zsA-qo-U5B" secondAttribute="trailing" id="444-Lh-bW0"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="top" secondItem="iUs-IB-h5G" secondAttribute="bottom" constant="27" id="BW2-Qu-Xce"/>
+                            <constraint firstAttribute="trailing" secondItem="zsA-qo-U5B" secondAttribute="trailing" id="IZU-WA-uvV"/>
+                            <constraint firstItem="zsA-qo-U5B" firstAttribute="top" secondItem="xqN-wB-LgL" secondAttribute="bottom" id="Iea-c5-BMg"/>
+                            <constraint firstItem="zsA-qo-U5B" firstAttribute="bottom" secondItem="jnK-bl-8Mt" secondAttribute="top" id="Jmd-te-pU8"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="leading" secondItem="YOM-Xy-3Ts" secondAttribute="leading" id="MOZ-od-RRa"/>
+                            <constraint firstItem="weC-Ax-VDU" firstAttribute="top" secondItem="YOM-Xy-3Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="Nwx-M7-d09"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="top" secondItem="weC-Ax-VDU" secondAttribute="bottom" constant="27" id="PAz-p8-VHy"/>
+                            <constraint firstItem="zsA-qo-U5B" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leading" id="PwB-VV-EF5"/>
+                            <constraint firstItem="zsA-qo-U5B" firstAttribute="leading" secondItem="xqN-wB-LgL" secondAttribute="leading" id="gbM-Pk-cvA"/>
+                            <constraint firstItem="xqN-wB-LgL" firstAttribute="centerX" secondItem="weC-Ax-VDU" secondAttribute="centerX" id="hgY-dd-027"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="trailing" secondItem="YOM-Xy-3Ts" secondAttribute="trailing" id="peF-1f-nCv"/>
+                            <constraint firstItem="iUs-IB-h5G" firstAttribute="top" secondItem="nMN-Mb-KxJ" secondAttribute="bottom" constant="40" id="xuR-Jg-KC9"/>
+                            <constraint firstItem="YOM-Xy-3Ts" firstAttribute="leading" secondItem="bYr-Zb-U9f" secondAttribute="leadingMargin" id="zv2-zk-4gk"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

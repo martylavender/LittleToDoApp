@@ -28,6 +28,7 @@
 		4C718EB31B2F7D1D00A3602B /* LTAModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C718EB11B2F7D1D00A3602B /* LTAModel.xcdatamodeld */; };
 		4C80EF761B20163200B26CFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C80EF751B20163200B26CFF /* libsqlite3.dylib */; };
 		4CE2F3DC1B338BEC00148AC0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */; };
+		4CFDA38A1B349C3000690787 /* MSNavigationSwipeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDA3891B349C3000690787 /* MSNavigationSwipeController.m */; };
 		9CBBAE2C1B2E6C9B00A2F063 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2B1B2E6C9B00A2F063 /* List.m */; };
 		9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBAE2E1B2E6C9C00A2F063 /* Item.m */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,8 @@
 		4C718EB21B2F7D1D00A3602B /* LTAModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTAModel.xcdatamodel; sourceTree = "<group>"; };
 		4C80EF751B20163200B26CFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4CE2F3DB1B338BEC00148AC0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		4CFDA3881B349C3000690787 /* MSNavigationSwipeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNavigationSwipeController.h; sourceTree = "<group>"; };
+		4CFDA3891B349C3000690787 /* MSNavigationSwipeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNavigationSwipeController.m; sourceTree = "<group>"; };
 		9CBBAE2A1B2E6C9B00A2F063 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		9CBBAE2B1B2E6C9B00A2F063 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		9CBBAE2D1B2E6C9C00A2F063 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 		44BD97B71B0BE0A400AFD5FA /* LittleToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				4CFDA3881B349C3000690787 /* MSNavigationSwipeController.h */,
+				4CFDA3891B349C3000690787 /* MSNavigationSwipeController.m */,
 				44BD97C01B0BE0A400AFD5FA /* AppDelegate.h */,
 				44BD97C11B0BE0A400AFD5FA /* AppDelegate.m */,
 				9CE8EB651B339765007CF73A /* Models */,
@@ -341,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFDA38A1B349C3000690787 /* MSNavigationSwipeController.m in Sources */,
 				9CBBAE2F1B2E6C9C00A2F063 /* Item.m in Sources */,
 				44BD97BE1B0BE0A400AFD5FA /* main.m in Sources */,
 				44BD97C21B0BE0A400AFD5FA /* AppDelegate.m in Sources */,
